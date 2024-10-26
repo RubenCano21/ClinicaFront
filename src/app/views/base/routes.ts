@@ -34,6 +34,34 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'listar',
+        loadComponent: () => import('./users/fusers.component').then(m => m.UserComponent),
+        data: {
+          title: 'Usuarios'
+        }
+      },
+      {
+        path: 'registrar',
+        loadComponent: () => import('./pacientes/paciente.component').then(m => m.PacienteComponent),
+        data: {
+          title: 'Pacientes'
+        }
+      },
+      {
+        path: 'listar',
+        loadComponent: () => import('./pacientes/editpaciente.component').then(m => m.PacienteComponent),
+        data: {
+          title: 'Pacientes'
+        }
+      },
+      {
+        path: 'actualizar',
+        loadComponent: () => import('./pacientes/fpaciente.component').then(m => m.PacienteComponent),
+        data: {
+          title: 'Pacientes'
+        }
+      },
+      {
         path: 'cards',
         loadComponent: () => import('./cards/cards.component').then(m => m.CardsComponent),
         data: {

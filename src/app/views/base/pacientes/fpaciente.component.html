@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2>Lista de Pacientes</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Cédula de Identidad</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Sexo</th>
+          <th>Dirección</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacientes">
+          <td>{{ paciente.ci }}</td>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+          <td>{{ paciente.fechaNacimiento | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ paciente.email }}</td>
+          <td>{{ paciente.telefono }}</td>
+          <td>{{ paciente.sexo }}</td>
+          <td>{{ paciente.direccion }}</td>
+          <td> <button cButton (click)="actualizarPaciente(paciente)" class="btn btn-warning">Actualizar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

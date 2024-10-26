@@ -1,0 +1,34 @@
+<!-- Formulario para agregar o editar clientes -->
+<!--<cliente-form (newClienteEvent)="addCliente($event)" [cliente]="clienteSelected"></cliente-form>-->
+
+<c-row class="my-7">
+  <c-col xs="20" md="8" class="mx-auto"> <!-- Centra el formulario -->
+    <c-card class="mb-7">
+      <c-card-header class="bg-primary text-white"> Lista de Usuarios</c-card-header>
+      <c-card-body>
+        <table
+          [hover]="true"
+          [responsive]="true"
+          [striped]="true"
+          align="middle"
+          cTable
+          class="mb-0 border"
+        >
+          <thead class="text-nowrap text-truncate">
+            <tr>
+              <th class="bg-body-tertiary text-center">#</th>
+              <th class="bg-body-tertiary text-center">Nombre</th> <!-- Centra el encabezado -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Usamos *ngFor para iterar sobre la lista de clientes -->
+            <tr *ngFor="let cliente of clientes; let i = index">
+              <td class="text-center">{{ i + 1 }}</td> <!-- Mostramos el índice -->
+              <td class="text-center">{{ cliente.username }}</td> <!-- Nombre de usuario -->
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

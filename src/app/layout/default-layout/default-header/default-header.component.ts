@@ -1,6 +1,7 @@
 import { NgStyle, NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { UsuarioService } from '../../../usuarios/service/usuario.service'; 
 
 import {
   AvatarComponent,
@@ -55,9 +56,15 @@ export class DefaultHeaderComponent extends HeaderComponent {
     return this.colorModes.find(mode => mode.name === currentMode)?.icon ?? 'cilSun';
   });
 
-  constructor() {
+  constructor(private usuarioService: UsuarioService, private router: Router) {
     super();
   }
 
   sidebarId = input('sidebar1');
+  
+  onLogout(): void {
+      this.usuarioService.logout();
+    this.router.navigate(['/login']);
+  }
+  
 }

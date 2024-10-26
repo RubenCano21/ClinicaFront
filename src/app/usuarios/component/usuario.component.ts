@@ -18,8 +18,8 @@ export class UsuarioComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(usuarios => this.usuarios = usuarios)
-  }
-
-
+    this.service.findAll().subscribe((usuarios: Usuario[]) => {
+      this.usuarios = usuarios;
+    });
+ }
 }

@@ -4,7 +4,7 @@ import { DefaultLayoutComponent } from './layout';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -18,12 +18,16 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
       },
-      // {
-      //   path: 'clientes',
-      //   loadChildren: () => import('./views/Users/routes').then((m) => m.routes)
-      // },
       {
         path: 'clientes',
+        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+      },
+      {
+        path: 'pacientes',
         loadChildren: () => import('./views/base/routes').then((m) => m.routes)
       },
       {
@@ -88,5 +92,5 @@ export const routes: Routes = [
       title: 'Register Page'
     }
   },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: '/login' }
 ];

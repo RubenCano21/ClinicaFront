@@ -21,7 +21,7 @@ import {FormUserComponent} from "./views/base/users/formUser.component";
   ]
 })
 export class AppComponent implements OnInit {
-  title = 'Tierras';
+  title = 'SSVS';
 
   readonly #destroyRef: DestroyRef = inject(DestroyRef);
   readonly #activatedRoute: ActivatedRoute = inject(ActivatedRoute);

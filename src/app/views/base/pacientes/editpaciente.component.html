@@ -1,0 +1,43 @@
+<form (ngSubmit)="actualizarPaciente()" #form="ngForm" class="row g-3">
+    <div class="col-md-4">
+      <label cLabel for="ci" class="fw-medium">Cédula de Identidad</label>
+      <input cFormControl name="ci" id="ci" type="number" [(ngModel)]="paciente.ci" required />
+    </div>
+    <div class="col-md-4">
+      <label cLabel for="nombre" class="fw-medium">Nombre</label>
+      <input cFormControl name="nombre" id="nombre" type="text" [(ngModel)]="paciente.nombre" required />
+    </div>
+    <div class="col-md-4">
+      <label cLabel for="apellido" class="fw-medium">Apellido</label>
+      <input cFormControl name="apellido" id="apellido" type="text" [(ngModel)]="paciente.apellido" required />
+    </div>
+    <div class="col-md-6">
+      <label cLabel for="fechaNacimiento" class="fw-medium">Fecha de Nacimiento</label>
+      <input cFormControl name="fechaNacimiento" id="fechaNacimiento" type="date" [(ngModel)]="paciente.fechaNacimiento" required />
+    </div>
+    <div class="col-md-6">
+      <label cLabel for="email" class="fw-medium">Email</label>
+      <input cFormControl name="email" id="email" type="email" [(ngModel)]="paciente.email" required />
+    </div>
+    <div class="col-md-6">
+      <label cLabel for="telefono" class="fw-medium">Teléfono</label>
+      <input cFormControl name="telefono" id="telefono" type="tel" [(ngModel)]="paciente.telefono" required />
+    </div>
+    <div class="col-6">
+      <label cLabel for="sexo" class="fw-medium">Sexo</label>
+      <select cSelect name="sexo" id="sexo" [(ngModel)]="paciente.sexo" required>
+        <option value="" disabled>Seleccionar</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <label cLabel for="direccion" class="fw-medium">Dirección</label>
+      <input cFormControl name="direccion" id="direccion" type="text" [(ngModel)]="paciente.direccion" required />
+    </div>
+    <div class="col-12">
+      <button cButton type="submit" class="fw-medium">Actualizar</button>
+    </div>
+  </form>
+  

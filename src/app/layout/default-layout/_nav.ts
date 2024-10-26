@@ -16,14 +16,39 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Usuarios',
-    url: '/theme/colors',
-    iconComponent: { name: 'cil-drop' }
+    url: '/usuarios',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-drop' },
+    children: [
+      {
+        name: "Lista de Usuarios",
+        url: '/usuarios/listar',
+        icon: 'nav-icon-bullet'
+      },
+    ]
   },
   {
-    name: 'Grupos',
-    url: '/incio/bitacora',
+    name: 'Pacientes',
+    url: '/pacientes',
     linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-pencil' }
+    iconComponent: { name: 'cil-user' },
+    children: [
+      {
+        name: "Registrar Pacientes",
+        url: '/pacientes/registrar',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: "Listar Pacientes",
+        url: '/pacientes/listar',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Actualizar Pacientes',
+        url: '/pacientes/actualizar',
+        icon: 'nav-icon-bullet'
+      },
+    ]
   },
   {
     name: 'Bitacora',
@@ -38,12 +63,12 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-user' },
     children: [
       {
-        name: "Lista de Usuarios",
+        name: "Lista de Clientes",
         url: '/clientes/lista',
         icon: 'nav-icon-bullet'
       },
       {
-        name: 'Registrar Usuarios',
+        name: 'Registrar Clientes',
         url: '/clientes/register',
         icon: 'nav-icon-bullet'
       },

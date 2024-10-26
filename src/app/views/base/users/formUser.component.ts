@@ -67,17 +67,18 @@ export class FormUserComponent implements OnInit {
 
   @Output() newClienteEvent = new EventEmitter();
   @Input() cliente!: User;
+  
 
   onSubmit(): void {
-    this.newClienteEvent.emit(this.clientes);
-    console.log(this.clientes);
-    this.clienteService.setCliente(this.clientes);
-    this.router.navigate(['/clientes/lista']);
+   /// this.newClienteEvent.emit(this.clientes);
+   // console.log(this.clientes);
+   // this.clienteService.setCliente(this.clientes);
+   // this.router.navigate(['/clientes/lista']);
   }
 
-  registrarCliente(){
-    this.clienteService.setCliente(this.clientes);
-    this.router.navigate(['/clientes/lista']);
-  }
+  //registrarCliente(){
+   // this.clienteService.setCliente(this.clientes);
+    //this.router.navigate(['/clientes/lista']);
+  //}
 
 }

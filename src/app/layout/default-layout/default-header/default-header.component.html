@@ -62,7 +62,7 @@
       <c-avatar
         shape="rounded-1"
         [size]="'md'"
-        src="./assets/images/avatars/8.jpg"
+        src="./assets/images/avatars/logo.jpg"
         status="success"
         textColor="primary"
         alt="User avatar"
@@ -70,8 +70,8 @@
     </button>
     <ul cDropdownMenu class="pt-0 w-auto">
       <li>
-        <h6 cDropdownHeader class="bg-body-secondary text-body-secondary fw-semibold py-2 rounded-top">
-          Cuenta
+       <!-- <h6 cDropdownHeader class="bg-body-secondary text-body-secondary fw-semibold py-2 rounded-top">
+          Cu  enta
         </h6>
       </li>
       <li></li>
@@ -102,9 +102,9 @@
       </li>
       <li>
         <hr cDropdownDivider />
-      </li>
+      </li>-->
       <li>
-        <a cDropdownItem routerLink="">
+        <a cDropdownItem (click)="onLogout()" href="javascript:void(0)">
           <svg cIcon class="me-2" name="cilAccountLogout"></svg>
           Salir
         </a>
