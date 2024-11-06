@@ -68,7 +68,7 @@ export class WidgetsBrandComponent implements AfterContentInit {
     pointBackgroundColor: 'rgba(255,255,255,.55)'
   };
   brandData: BrandData[] = [
-    {
+    /*{
       icon: 'cibFacebook',
       values: [{ title: 'friends', value: '89K' }, { title: 'feeds', value: '459' }],
       capBg: { '--cui-card-cap-bg': '#3b5998' },
@@ -104,7 +104,7 @@ export class WidgetsBrandComponent implements AfterContentInit {
         labels: [...this.labels],
         datasets: [{ ...this.datasets, data: [35, 23, 56, 22, 97, 23, 64], label: 'Events', ...this.colors }]
       }
-    }
+    }*/
   ];
 
   capStyle(value: string) {

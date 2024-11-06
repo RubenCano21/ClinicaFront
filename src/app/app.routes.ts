@@ -31,6 +31,22 @@ export const routes: Routes = [
         loadChildren: () => import('./views/base/routes').then((m) => m.routes)
       },
       {
+        path: 'medicos',
+        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+      },
+      {
+        path: 'consultorios',
+        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+      },
+      {
+        path: 'especialidades',
+        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+      },
+      {
+        path: 'horarios',
+        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+      },
+      {
         path: 'base',
         loadChildren: () => import('./views/base/routes').then((m) => m.routes)
       },

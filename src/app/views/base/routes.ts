@@ -33,34 +33,106 @@ export const routes: Routes = [
           title: 'Clientes'
         }
       },
+    
       {
-        path: 'listar',
+        path: 'lista-usuarios',
         loadComponent: () => import('./users/fusers.component').then(m => m.UserComponent),
         data: {
-          title: 'Usuarios'
-        }
+           title: 'Usuarios'
+         }
       },
+
       {
-        path: 'registrar',
+        path: 'registrar-paciente',
         loadComponent: () => import('./pacientes/paciente.component').then(m => m.PacienteComponent),
         data: {
           title: 'Pacientes'
         }
       },
       {
-        path: 'listar',
-        loadComponent: () => import('./pacientes/editpaciente.component').then(m => m.PacienteComponent),
-        data: {
-          title: 'Pacientes'
-        }
-      },
-      {
-        path: 'actualizar',
+        path: 'lista-pacientes',
         loadComponent: () => import('./pacientes/fpaciente.component').then(m => m.PacienteComponent),
         data: {
           title: 'Pacientes'
+         }
+        },
+      {
+        path: 'actualizar-paciente/:id',
+        loadComponent: () => import('./pacientes/epaciente.component').then(m => m.PacienteComponent),
+        data: {
+          title: 'Pacientes'
         }
       },
+
+      {
+        path: 'registrar-medico',
+        loadComponent: () => import('./medicos/medico.component').then(m => m.MedicoComponent),
+        data: {
+          title: 'Medicos'
+        }
+      },
+      {
+        path: 'lista-medicos',
+        loadComponent: () => import('./medicos/listmedico.component').then(m => m.MedicoComponent),
+        data: {
+          title: 'Medicos'
+         }
+        },
+      {
+        path: 'actualizar-medico/:id',
+        loadComponent: () => import('./medicos/editmedico.component').then(m => m.MedicoComponent),
+        data: {
+          title: 'Medicos'
+        }
+      },
+
+      {
+        path: 'registrar-consultorio',
+        loadComponent: () => import('./consultorios/consultorio.component').then(m => m.ConsultorioComponent),
+        data: {
+          title: 'Consultorios'
+        }
+      },
+
+      { 
+        path: 'lista-consultorios',
+        loadComponent: () => import('./consultorios/listconsultorio.component').then(m => m.ConsultorioComponent), 
+        data: {
+          title: 'Consultorios'
+        }
+      },
+
+      {
+       path: 'registrar-especialidad',
+        loadComponent: () => import('./especialidades/especialidad.component').then(m => m.EspecialidadComponent),
+        data: {
+          title: 'Especialidades'
+        }
+      },
+      {
+        path: 'lista-especialidades',
+        loadComponent: () => import('./especialidades/listespecialidad.component').then(m => m.EspecialidadComponent),  
+        data: {
+          title: 'Especialidades' 
+        }
+      },
+      
+      {
+       path: 'registrar-horario',
+       loadComponent: () => import('./horarios/horario.component').then(m => m.HorarioComponent),
+       data: {
+         title: 'Horarios'
+        }
+      },
+      
+      {
+       path: 'lista-horarios',  
+        loadComponent: () => import('./horarios/listhorario.component').then(m => m.HorarioComponent),
+        data: {
+          title: 'Horarios'
+        }
+      },
+
       {
         path: 'cards',
         loadComponent: () => import('./cards/cards.component').then(m => m.CardsComponent),

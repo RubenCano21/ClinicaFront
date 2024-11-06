@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { PacienteService } from './paciente.service';
 import { Paciente } from './paciente';
 import { CommonModule } from '@angular/common'; 
+import { Router } from '@angular/router';
+import { FormsModule} from '@angular/forms'; 
 
 @Component({
-  selector: 'app-paciente',
+  selector: 'app-pacientes-listar',
   templateUrl: './fpaciente.component.html',
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, FormsModule]  
 })
 export class PacienteComponent implements OnInit {
   pacientes: Paciente[] = [];
 
-  constructor(private pacienteService: PacienteService) {}
+  constructor(private pacienteService: PacienteService,private router: Router) {}
 
   ngOnInit(): void {
     this.getPacientes();
@@ -30,11 +32,7 @@ export class PacienteComponent implements OnInit {
   }
 
   actualizarPaciente(paciente: Paciente): void {
-    // Aquí puedes realizar la acción que desees
-    // Por ejemplo, abrir un formulario de edición
-    console.log('Actualizar paciente:', paciente);
-    // También podrías refrescar la lista de pacientes si eso es lo que deseas
-    this.getPacientes(); // Opcional, si deseas refrescar la lista después de la acción
+    this.router.navigate(['/pacientes/actualizar-paciente', paciente.id]);
   }
 }
 

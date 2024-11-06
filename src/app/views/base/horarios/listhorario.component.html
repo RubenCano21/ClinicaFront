@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <h2 class="text-center">Lista de Horarios</h2>
+    
+    <div class="table-responsive d-flex justify-content-center">
+      <table class="table table-striped table-bordered mt-4" style="max-width: 800px;" *ngIf="horario.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Día</th>
+            <th>Hora de Inicio</th>
+            <th>Hora de Fin</th>
+            <th>Capacidad</th>
+            <th style="width: 120px;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of horario">
+            <td>{{ item.id }}</td>
+            <td>{{ item.dia }}</td>
+            <td>{{ item.horaInicio }}</td>
+            <td>{{ item.horaFin }}</td>
+            <td>{{ item.capacidad }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="actualizarHorario(item.id)">
+                Actualizar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="horario.length === 0" class="text-center">No hay horarios disponibles</p>
+    </div>
+  </div>
+  

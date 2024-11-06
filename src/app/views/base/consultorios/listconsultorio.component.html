@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <h2 class="text-center">Lista de Consultorios</h2>
+    
+    <div class="table-responsive d-flex justify-content-center">
+      <table class="table table-striped table-bordered mt-4" style="max-width: 500px;" *ngIf="consultorio.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th style="width: 120px;"> Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let consultorios of consultorio">
+            <td>{{ consultorios.id }}</td>
+            <td>{{ consultorios.nombre }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="actualizarConsultorio(consultorios.id)">
+                Actualizar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

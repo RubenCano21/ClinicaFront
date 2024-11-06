@@ -18,11 +18,9 @@ export class PacienteService {
     getPacientes(): Observable<Paciente[]> {
         return this.http.get<Paciente[]>(`${this.apiUrl}/listar`); // Asegúrate de que esta URL sea la correcta
     }
-
-    // Método para actualizar los datos de un paciente
-    actualizarPaciente(paciente: Paciente): Observable<Paciente> {
-        return this.http.put<Paciente>(`${this.apiUrl}/actualizar/{id}`, paciente);
-    }
     
-      
+    // Método para actualizar los datos de un paciente
+    actualizarPacientes(paciente: Paciente): Observable<Paciente> {
+        return this.http.put<Paciente>(`${this.apiUrl}/actualizar/${paciente.id}`, paciente);
+    }
 }

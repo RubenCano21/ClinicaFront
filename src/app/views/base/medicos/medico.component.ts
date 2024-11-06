@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PacienteService } from './paciente.service';
-import { Paciente } from './paciente';
+import { MedicoService } from './medico.service';
+import { Medico } from './medico';
 import { Injectable } from '@angular/core';
-import { DocsExampleComponent } from '@docs-components/public-api';
 import { NgClass } from '@angular/common';
 import {FormsModule, NgForm} from "@angular/forms";
 import {IconDirective} from "@coreui/icons-angular";
+import { EspecialidadService } from '../especialidades/especialidad.service';
+import { Especialidad } from '../especialidades/especialidad';
+import { CommonModule } from '@angular/common';
 import {
     AvatarComponent,
     BreadcrumbComponent,
@@ -30,64 +32,80 @@ import {
 })
 
 @Component({
-    selector: 'app-paciente',
-    templateUrl: './paciente.component.html',
+    selector: 'app-medico',
+    templateUrl: './medico.component.html',
     standalone: true,
   imports: [RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent,
-    CardBodyComponent, DocsExampleComponent, BreadcrumbComponent, BreadcrumbItemComponent, NgClass,
+    CardBodyComponent, BreadcrumbComponent, BreadcrumbItemComponent, NgClass,
     BreadcrumbRouterComponent, FormDirective, FormLabelDirective, FormControlDirective, FormSelectDirective,
     FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, AvatarComponent, IconDirective,
-    ProgressComponent, TableDirective, FormsModule]
+    ProgressComponent, TableDirective, FormsModule, CommonModule]
 })
-export class PacienteComponent implements OnInit {
-    pacientes: Paciente[] = []; // Inicializa la lista de pacientes
-    constructor(private pacienteService: PacienteService) {}
+export class MedicoComponent implements OnInit {
+    medicos: Medico[] = []; // Inicializa la lista de pacientes
+    especialidadesobtenidas: Especialidad [] = [];
+
+    constructor(
+        private medicoService: MedicoService,
+        private especialidadService: EspecialidadService 
+    ) {}
 
     // Implementación correcta del método ngOnInit
     ngOnInit(): void {
         // Puedes llamar a otro método aquí si necesitas
-        this.getPacientes(); // Solo si quieres obtener los pacientes al inicializar
+        this.getMedicos(); // Solo si quieres obtener los pacientes al inicializar
+        this.getEspecialidad();
     }
 
+    getEspecialidad(): void {
+        this.especialidadService.listarEspecialidad().subscribe(
+          (data: Especialidad []) => {
+            this.especialidadesobtenidas = data;
+          },
+          (error) => {
+            console.error('Error al obtener especialidades:', error);
+          }
+        );
+      }
     // Método para registrar un paciente
-    registrarPaciente(form: NgForm): void {
+    registrarMedico(form: NgForm): void {
         const formValues = form.value;
-        const nuevoPaciente: Paciente = {
+        const nuevoMedico: Medico = {
             id: 0, // or any default value or logic to generate a new id
             ci: formValues.ci,
             nombre: formValues.nombre,
             apellido: formValues.apellido,
-            fechaNacimiento: formValues.fechaNacimiento,
             email: formValues.email,
             telefono: formValues.telefono,
             sexo: formValues.sexo,
-            direccion: formValues.direccion,
+            especialidades: formValues.especialidadesobtenidas
         };
 
     
 
-        this.pacienteService.registrarPaciente(nuevoPaciente).subscribe(
+        this.medicoService.registrarMedico(nuevoMedico).subscribe(
             (response) => {
-                console.log('Paciente registrado:', response);
-                this.getPacientes(); // Opcional: Actualiza la lista de pacientes
+                console.log('Medico registrado:', response);
+                this.getMedicos(); // Opcional: Actualiza la lista de pacientes
                  form.reset();// Opcional: Limpia el formulario\
                  
             },
             (error) => {
-                console.error('Error al registrar paciente:', error);
+                console.error('Error al registrar Medico:', error);
             }
         );
     }
 
     // Método para obtener la lista de pacientes
-    getPacientes(): void {
-        this.pacienteService.getPacientes().subscribe(
-            (data: Paciente[]) => {
-                this.pacientes = data;
+    getMedicos(): void {
+        this.medicoService.getMedicos().subscribe(
+            (data: Medico[]) => {
+                this.medicos = data;
             },
             (error) => {
-                console.error('Error al obtener pacientes:', error);
+                console.error('Error al obtener los Medicos:', error);
             }
         );
     }
+
 }

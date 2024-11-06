@@ -12,17 +12,17 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
-    name: 'Gestion de Usuarios'
+    name: 'Administración'
   },
   {
     name: 'Usuarios',
     url: '/usuarios',
     linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-drop' },
+    iconComponent: { name: 'cil-user' },
     children: [
       {
         name: "Lista de Usuarios",
-        url: '/usuarios/listar',
+        url: '/usuarios/lista-usuarios',
         icon: 'nav-icon-bullet'
       },
     ]
@@ -35,22 +35,102 @@ export const navItems: INavData[] = [
     children: [
       {
         name: "Registrar Pacientes",
-        url: '/pacientes/registrar',
+        url: '/pacientes/registrar-paciente',
         icon: 'nav-icon-bullet'
       },
       {
-        name: "Listar Pacientes",
-        url: '/pacientes/listar',
+        name: 'Lista de Pacientes',
+        url: '/pacientes/lista-pacientes',
         icon: 'nav-icon-bullet'
       },
       {
-        name: 'Actualizar Pacientes',
-        url: '/pacientes/actualizar',
+        name: "Actualizar Pacientes",
+        url: '/pacientes/actualizar-paciente/:id',
         icon: 'nav-icon-bullet'
       },
     ]
   },
   {
+    name: 'Medicos',
+    url: '/medicos',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-user' },
+    children: [
+      {
+        name: "Registrar Medicos",
+        url: '/medicos/registrar-medico',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Lista de Medicos',
+        url: '/medicos/lista-medicos',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: "Actualizar Medicos",
+        url: '/medicos/actualizar-medico/:id',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  {
+    name: 'Consultorios', 
+    url: '/consultorios',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-user' },
+    children: [
+      {
+        name: "Registrar Consultorios",
+        url: '/consultorios/registrar-consultorio',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Lista de Consultorios',
+        url: '/consultorios/lista-consultorios',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  }, 
+  
+  {
+    name: 'Especialidades',
+    url: '/especialidades',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-user' },
+    children: [
+      {
+        name: "Registrar Especialidades",
+        url: '/especialidades/registrar-especialidad',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Lista de Especialidades',
+        url: '/especialidades/lista-especialidades',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  
+  {
+    name: 'Horarios',
+    url: '/horarios',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-user' },
+    children: [
+      {
+        name: "Registrar Horarios",
+        url: '/horarios/registrar-horario',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Lista de Horarios',
+        url: '/horarios/lista-horarios',
+        icon: 'nav-icon-bullet'
+      },
+    ] 
+  },
+
+  /*{
     name: 'Bitacora',
     url: '/incio/bitacora',
     linkProps: { fragment: 'headings' },
@@ -267,6 +347,6 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       }
     ]
-  }
+  }*/
 
 ];

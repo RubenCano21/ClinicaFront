@@ -1,0 +1,69 @@
+<div class="container mt-4">
+    <h2>Registrar Horario</h2>
+    <form #horarioForm="ngForm" (ngSubmit)="onSubmit(horarioForm)" class="row g-3">
+        
+        <!-- Campo para seleccionar el día -->
+        <div class="col-md-6">
+            <label for="dia" class="form-label">Día</label>
+            <select name="dia" id="dia" class="form-select" required [(ngModel)]="dia" #dia="ngModel">
+                <option value="" disabled selected>Seleccionar un día</option>
+                <option value="lunes">Lunes</option>
+                <option value="martes">Martes</option>
+                <option value="miércoles">Miércoles</option>
+                <option value="jueves">Jueves</option>
+                <option value="viernes">Viernes</option>
+                <option value="sábado">Sábado</option>
+                <option value="domingo">Domingo</option>
+            </select>
+            <div *ngIf="dia.invalid && dia.touched" class="text-danger">
+                Día es obligatorio.
+            </div>
+        </div>
+
+        <!-- Campo para seleccionar la hora de inicio -->
+        <div class="col-md-6">
+            <label for="horaInicio" class="form-label">Hora de Inicio</label>
+            <input name="horaInicio" id="horaInicio" type="time" class="form-control" required [(ngModel)]="horaInicio" #horaInicio="ngModel" />
+            <div *ngIf="horaInicio.invalid && horaInicio.touched" class="text-danger">
+                Hora de inicio es obligatoria.
+            </div>
+        </div>
+
+        <!-- Campo para seleccionar la hora de fin -->
+        <div class="col-md-6">
+            <label for="horaFin" class="form-label">Hora de Fin</label>
+            <input name="horaFin" id="horaFin" type="time" class="form-control" required [(ngModel)]="horaFin" #horaFin="ngModel" />
+            <div *ngIf="horaFin.invalid && horaFin.touched" class="text-danger">
+                Hora de fin es obligatoria.
+            </div>
+        </div>
+
+        <!-- Campo para ingresar la capacidad -->
+        <div class="col-md-6">
+            <label for="capacidad" class="form-label">Capacidad</label>
+            <input name="capacidad" id="capacidad" type="number" class="form-control" placeholder="Capacidad" required [(ngModel)]="capacidad" #capacidad="ngModel" />
+            <div *ngIf="capacidad.invalid && capacidad.touched" class="text-danger">
+                Capacidad es obligatoria.
+            </div>
+        </div>
+
+        <!-- Campo para seleccionar el consultorio -->
+        <div class="col-md-6">
+            <label for="consultorio" class="form-label">Consultorio</label>
+            <select name="consultorio" id="consultorio" class="form-select" required [(ngModel)]="consultorio" #consultorio="ngModel">
+                <option value="" disabled selected>Seleccionar un consultorio</option>
+                <option *ngFor="let consultorio of consultoriosobtener" [value]="consultorio.id">
+                    {{ consultorio.nombre }}
+                </option>
+            </select>
+            <div *ngIf="consultorio.invalid && consultorio.touched" class="text-danger">
+                Consultorio es obligatorio.
+            </div>
+        </div>
+
+        <!-- Botón para enviar el formulario -->
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary" [disabled]="horarioForm.invalid">Registrar</button>
+        </div>
+    </form>
+</div>

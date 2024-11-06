@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h2>Lista de Medicos</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Cédula de Identidad</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Sexo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medico of medicos">
+          <td>{{ medico.ci }}</td>
+          <td>{{ medico.nombre }}</td>
+          <td>{{ medico.apellido }}</td>
+          <td>{{ medico.email }}</td>
+          <td>{{ medico.telefono }}</td>
+          <td>{{ medico.sexo }}</td>
+          <td> <button cButton (click)="actualizarMedico(medico)" class="btn btn-primary">Actualizar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
