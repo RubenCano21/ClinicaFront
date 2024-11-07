@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from './paciente.service';
 import { Paciente } from './paciente';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { FormsModule} from '@angular/forms'; 
+import { FormsModule} from '@angular/forms';
+import {
+  ButtonDirective,
+  CardBodyComponent,
+  CardComponent, CardFooterComponent,
+  CardHeaderComponent,
+  TableColorDirective,
+  TableDirective
+} from "@coreui/angular";
 
 @Component({
   selector: 'app-pacientes-listar',
   templateUrl: './fpaciente.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule]  
+  imports: [CommonModule, FormsModule, CardHeaderComponent, CardComponent, CardBodyComponent, TableDirective, TableColorDirective, ButtonDirective, CardFooterComponent]
 })
 export class PacienteComponent implements OnInit {
   pacientes: Paciente[] = [];

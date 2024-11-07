@@ -33,7 +33,7 @@ export const routes: Routes = [
           title: 'Clientes'
         }
       },
-    
+
       {
         path: 'lista-usuarios',
         loadComponent: () => import('./users/fusers.component').then(m => m.UserComponent),
@@ -94,9 +94,9 @@ export const routes: Routes = [
         }
       },
 
-      { 
+      {
         path: 'lista-consultorios',
-        loadComponent: () => import('./consultorios/listconsultorio.component').then(m => m.ConsultorioComponent), 
+        loadComponent: () => import('./consultorios/listconsultorio.component').then(m => m.ConsultorioComponent),
         data: {
           title: 'Consultorios'
         }
@@ -111,12 +111,12 @@ export const routes: Routes = [
       },
       {
         path: 'lista-especialidades',
-        loadComponent: () => import('./especialidades/listespecialidad.component').then(m => m.EspecialidadComponent),  
+        loadComponent: () => import('./especialidades/listespecialidad.component').then(m => m.EspecialidadComponent),
         data: {
-          title: 'Especialidades' 
+          title: 'Especialidades'
         }
       },
-      
+
       {
        path: 'registrar-horario',
        loadComponent: () => import('./horarios/horario.component').then(m => m.HorarioComponent),
@@ -124,15 +124,22 @@ export const routes: Routes = [
          title: 'Horarios'
         }
       },
-      
+
       {
-       path: 'lista-horarios',  
+       path: 'lista-horarios',
         loadComponent: () => import('./horarios/listhorario.component').then(m => m.HorarioComponent),
         data: {
           title: 'Horarios'
         }
       },
 
+      {
+        path: 'listar',
+        loadComponent: () => import('./medicoHorario/medico-horario.component').then(m => m.MedicoHorarioComponent),
+        data: {
+          title: 'Medicos Horarios'
+        }
+      },
       {
         path: 'cards',
         loadComponent: () => import('./cards/cards.component').then(m => m.CardsComponent),

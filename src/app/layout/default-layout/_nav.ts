@@ -74,7 +74,7 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Consultorios', 
+    name: 'Consultorios',
     url: '/consultorios',
     linkProps: { fragment: 'headings' },
     iconComponent: { name: 'cil-user' },
@@ -90,8 +90,8 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       },
     ]
-  }, 
-  
+  },
+
   {
     name: 'Especialidades',
     url: '/especialidades',
@@ -110,7 +110,7 @@ export const navItems: INavData[] = [
       },
     ]
   },
-  
+
   {
     name: 'Horarios',
     url: '/horarios',
@@ -127,34 +127,33 @@ export const navItems: INavData[] = [
         url: '/horarios/lista-horarios',
         icon: 'nav-icon-bullet'
       },
-    ] 
+    ]
   },
 
-  /*{
-    name: 'Bitacora',
-    url: '/incio/bitacora',
-    linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-pencil' }
-  },
   {
-    name: 'Clientes',
-    url: '/clientes',
+    title: true,
+    name: 'Fichas'
+  },
+
+  {
+    name: 'Horarios de Medicos',
+    url: '/medicos-horarios',
     linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-user' },
+    iconComponent: { name: 'cil-cursor' },
     children: [
       {
-        name: "Lista de Clientes",
-        url: '/clientes/lista',
+        name: "Ver Horarios",
+        url: '/medicos-horarios/listar',
         icon: 'nav-icon-bullet'
       },
       {
-        name: 'Registrar Clientes',
+        name: 'Agendar Ficha',
         url: '/clientes/register',
         icon: 'nav-icon-bullet'
       },
     ]
   },
-  {
+  /*{
     name: 'Trámites',
     title: true
   },

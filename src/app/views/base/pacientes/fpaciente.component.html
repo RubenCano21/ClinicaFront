@@ -1,7 +1,13 @@
-<div class="container mt-4">
+
+<c-card>
+  <c-card-header>
     <h2>Lista de Pacientes</h2>
-    <table class="table table-bordered">
-      <thead>
+  </c-card-header>
+  <c-card-body>
+    <div class="container mt-4">
+
+      <table class="table table-bordered">
+        <thead cTableColor="light">
         <tr>
           <th>Cédula de Identidad</th>
           <th>Nombre</th>
@@ -13,8 +19,8 @@
           <th>Dirección</th>
           <th>Acciones</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <tr *ngFor="let paciente of pacientes">
           <td>{{ paciente.ci }}</td>
           <td>{{ paciente.nombre }}</td>
@@ -24,9 +30,17 @@
           <td>{{ paciente.telefono }}</td>
           <td>{{ paciente.sexo }}</td>
           <td>{{ paciente.direccion }}</td>
-          <td> <button cButton (click)="actualizarPaciente(paciente)" class="btn btn-primary">Actualizar</button></td>
+          <td>
+            <button cButton color="primary" variant="ghost" (click)="actualizarPaciente(paciente)" class="btn btn-primary">Actualizar</button>
+          </td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-  
+        </tbody>
+      </table>
+    </div>
+  </c-card-body>
+  <c-card-footer>
+    <button cButton color="primary" variant="ghost"  class="btn btn-primary">Nuevo Paciente</button>
+  </c-card-footer>
+</c-card>
+
+

@@ -8,7 +8,7 @@
 ![angular](https://img.shields.io/badge/angular-^18.2.0-lightgrey.svg?style=flat-square&logo=angular)
 
 [npm-coreui-angular]: https://www.npmjs.com/package/@coreui/angular
-
+ 
 [npm-coreui-angular-badge]: https://img.shields.io/npm/v/@coreui/angular.png?style=flat-square
 
 [npm-coreui-angular-badge-next]: https://img.shields.io/npm/v/@coreui/angular/next?style=flat-square&color=red
@@ -164,7 +164,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. 
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -257,3 +258,5 @@ persons who tried to sell CoreUI based templates.
 # Archivos de ayuda
 https://coreui.io/angular/docs/components/nav/
 # ClinicaFront
+
+# api/nombreArchivo
