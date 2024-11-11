@@ -23,8 +23,10 @@
               {{item.horario.horaFin}}</th>
             <td>
               <!-- Muestra el médico solo si tiene horario para ese día y hora -->
-              {{ item.medico.nombre }} {{ item.medico.apellido }}<br>
-              <small>{{item.consultorio.nombre }}</small>
+              <ng-container >
+                {{ item.medico.nombre }} {{ item.medico.apellido }}<br>
+                <small>{{item.consultorio.nombre }}</small>
+              </ng-container>
             </td>
           </tr>
 

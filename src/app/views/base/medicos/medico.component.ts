@@ -47,7 +47,7 @@ export class MedicoComponent implements OnInit {
 
     constructor(
         private medicoService: MedicoService,
-        private especialidadService: EspecialidadService 
+        private especialidadService: EspecialidadService
     ) {}
 
     // Implementación correcta del método ngOnInit
@@ -81,14 +81,14 @@ export class MedicoComponent implements OnInit {
             especialidades: formValues.especialidadesobtenidas
         };
 
-    
+
 
         this.medicoService.registrarMedico(nuevoMedico).subscribe(
             (response) => {
                 console.log('Medico registrado:', response);
                 this.getMedicos(); // Opcional: Actualiza la lista de pacientes
                  form.reset();// Opcional: Limpia el formulario\
-                 
+
             },
             (error) => {
                 console.error('Error al registrar Medico:', error);
@@ -98,13 +98,14 @@ export class MedicoComponent implements OnInit {
 
     // Método para obtener la lista de pacientes
     getMedicos(): void {
-        this.medicoService.getMedicos().subscribe(
-            (data: Medico[]) => {
+        this.medicoService.getMedicos().subscribe({
+            next: (data: Medico[]) => {
                 this.medicos = data;
             },
-            (error) => {
+            error: (error) => {
                 console.error('Error al obtener los Medicos:', error);
             }
+        }
         );
     }
 

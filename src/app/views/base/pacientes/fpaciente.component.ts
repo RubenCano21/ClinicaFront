@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule} from '@angular/forms';
 import {
+  BgColorDirective,
   ButtonDirective,
   CardBodyComponent,
   CardComponent, CardFooterComponent,
-  CardHeaderComponent,
+  CardHeaderComponent, CardTextDirective,
   TableColorDirective,
   TableDirective
 } from "@coreui/angular";
@@ -17,7 +18,7 @@ import {
   selector: 'app-pacientes-listar',
   templateUrl: './fpaciente.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, CardHeaderComponent, CardComponent, CardBodyComponent, TableDirective, TableColorDirective, ButtonDirective, CardFooterComponent]
+  imports: [CommonModule, FormsModule, CardHeaderComponent, CardComponent, CardBodyComponent, TableDirective, TableColorDirective, ButtonDirective, CardFooterComponent, CardTextDirective, BgColorDirective]
 })
 export class PacienteComponent implements OnInit {
   pacientes: Paciente[] = [];

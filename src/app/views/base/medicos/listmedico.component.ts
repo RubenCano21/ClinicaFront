@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicoService } from './medico.service';
 import { Medico } from './medico';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { FormsModule} from '@angular/forms'; 
+import { FormsModule} from '@angular/forms';
+import {ButtonDirective} from "@coreui/angular";
 
 @Component({
   selector: 'app-medico-listar',
   templateUrl: './listmedico.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule]  
+  imports: [CommonModule, FormsModule, ButtonDirective]
 })
 export class MedicoComponent implements OnInit {
   medicos: Medico[] = [];

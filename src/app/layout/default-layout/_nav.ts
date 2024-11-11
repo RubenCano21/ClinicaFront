@@ -147,8 +147,13 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       },
       {
-        name: 'Agendar Ficha',
-        url: '/clientes/register',
+        name: 'Asignar Horarios',
+        url: '/medicos-horarios/registrar',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Intervalos de Horarios',
+        url: '/medicos-horarios/generar-intervalos',
         icon: 'nav-icon-bullet'
       },
     ]

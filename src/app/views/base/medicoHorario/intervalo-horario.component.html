@@ -1,0 +1,27 @@
+<c-card>
+  <c-card-header>
+    <h4 class="card-title">Intervalo de Horario</h4>
+  </c-card-header>
+  <c-card-body>
+      <table cTable>
+        <thead cTableColor="primary">
+          <tr>
+            <th>Medico</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let intervalo of intervalo">
+            <td>{{intervalo.medicoHorario.medico.nombre}}</td>
+            <td>{{intervalo.horaInicio}}</td>
+            <td>{{intervalo.horaFin}}</td>
+            <td>{{intervalo.estado}}</td>
+          </tr>
+      </table>
+  </c-card-body>
+  <c-card-footer>
+
+  </c-card-footer>
+</c-card>

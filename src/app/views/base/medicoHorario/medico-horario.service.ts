@@ -17,4 +17,8 @@ export class MedicoHorarioService {
     return this.http.get<MedicoHorario[]>(`${this.apiUrl}/listar`);
   }
 
+  generarIntervaloHorario(medicoHorario: MedicoHorario): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/generar-intervalos`, medicoHorario);
+  }
+
 }

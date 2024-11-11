@@ -7,23 +7,23 @@ import { NgClass } from '@angular/common';
 import {FormsModule, NgForm} from "@angular/forms";
 import {IconDirective} from "@coreui/icons-angular";
 import {
-    AvatarComponent,
-    BreadcrumbComponent,
-    BreadcrumbItemComponent,
-    BreadcrumbRouterComponent, ButtonDirective,
-    CardBodyComponent,
-    CardComponent,
-    CardHeaderComponent,
-    ColComponent,
-    FormCheckComponent,
-    FormCheckInputDirective, FormCheckLabelDirective,
-    FormControlDirective,
-    FormDirective,
-    FormLabelDirective,
-    FormSelectDirective, ProgressComponent,
-    RowComponent, TableDirective,
-    TextColorDirective
-  } from '@coreui/angular';
+  AvatarComponent, BgColorDirective, BorderDirective,
+  BreadcrumbComponent,
+  BreadcrumbItemComponent,
+  BreadcrumbRouterComponent, ButtonDirective,
+  CardBodyComponent,
+  CardComponent,
+  CardHeaderComponent,
+  ColComponent,
+  FormCheckComponent,
+  FormCheckInputDirective, FormCheckLabelDirective,
+  FormControlDirective,
+  FormDirective,
+  FormLabelDirective,
+  FormSelectDirective, ProgressComponent,
+  RowComponent, TableDirective,
+  TextColorDirective
+} from '@coreui/angular';
 
 @Injectable({
     providedIn: 'root',
@@ -37,7 +37,7 @@ import {
     CardBodyComponent, DocsExampleComponent, BreadcrumbComponent, BreadcrumbItemComponent, NgClass,
     BreadcrumbRouterComponent, FormDirective, FormLabelDirective, FormControlDirective, FormSelectDirective,
     FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, AvatarComponent, IconDirective,
-    ProgressComponent, TableDirective, FormsModule]
+    ProgressComponent, TableDirective, FormsModule, BgColorDirective, BorderDirective]
 })
 export class PacienteComponent implements OnInit {
     pacientes: Paciente[] = []; // Inicializa la lista de pacientes
@@ -64,14 +64,14 @@ export class PacienteComponent implements OnInit {
             direccion: formValues.direccion,
         };
 
-    
+
 
         this.pacienteService.registrarPaciente(nuevoPaciente).subscribe(
             (response) => {
                 console.log('Paciente registrado:', response);
                 this.getPacientes(); // Opcional: Actualiza la lista de pacientes
                  form.reset();// Opcional: Limpia el formulario\
-                 
+
             },
             (error) => {
                 console.error('Error al registrar paciente:', error);

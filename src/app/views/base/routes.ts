@@ -51,7 +51,7 @@ export const routes: Routes = [
       },
       {
         path: 'lista-pacientes',
-        loadComponent: () => import('./pacientes/fpaciente.component').then(m => m.PacienteComponent),
+        loadComponent: () => import('./pacientes/paciente.component').then(m => m.PacienteComponent),
         data: {
           title: 'Pacientes'
          }
@@ -138,6 +138,20 @@ export const routes: Routes = [
         loadComponent: () => import('./medicoHorario/medico-horario.component').then(m => m.MedicoHorarioComponent),
         data: {
           title: 'Medicos Horarios'
+        }
+      },
+      {
+        path: 'registrar',
+        loadComponent: () => import('./medicoHorario/registrar-medico-horario.component').then(m => m.RegistrarMedicoHorarioComponent),
+        data: {
+          title: 'Asignar Horarios'
+        }
+      },
+      {
+        path: 'generar-intervalos',
+        loadComponent: () => import('./medicoHorario/intervalo-horario.component').then(m => m.IntervaloHorarioComponent),
+        data: {
+          title: 'Intervalos de Horarios'
         }
       },
       {

@@ -2,13 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PacienteService } from './paciente.service';
 import { Paciente } from './paciente';
-import { FormsModule,NgForm} from '@angular/forms'; 
+import { FormsModule,NgForm} from '@angular/forms';
+import {
+  BgColorDirective,
+  BorderDirective,
+  CardBodyComponent,
+  CardComponent,
+  CardHeaderComponent
+} from "@coreui/angular";
 
 @Component({
   selector: 'app-actualizar-paciente',
   templateUrl: './epaciente.component.html',
   standalone: true,
-  imports: [FormsModule]
+  imports: [FormsModule, CardComponent, CardBodyComponent, CardHeaderComponent, BgColorDirective, BorderDirective]
 })
 export class PacienteComponent implements OnInit {
   paciente: Paciente = {
@@ -54,5 +61,5 @@ export class PacienteComponent implements OnInit {
     );
 }
 
-  
+
 }

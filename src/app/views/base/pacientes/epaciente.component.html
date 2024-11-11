@@ -1,45 +1,53 @@
-<div class="container mt-4">
-  <h2>Actualizar Paciente</h2>
-  <form (ngSubmit)="actualizarPacientess()" #pacienteForm="ngForm">
-    <div class="form-group">
-      <label for="ci">Cédula de Identidad:</label>
-      <input type="number" id="ci" class="form-control" [(ngModel)]="paciente.ci" name="ci" required>
+<c-card cBorder="primary">
+  <c-card-body cBgColor="primary">
+    <h4 class="text-white">Actualizar Paciente</h4>
+  </c-card-body>
+  <c-card-header>
+    <div class="container mt-4">
+      <form (ngSubmit)="actualizarPacientess()" #pacienteForm="ngForm">
+        <div class="form-group">
+          <label for="ci">Cédula de Identidad:</label>
+          <input type="number" id="ci" class="form-control" [(ngModel)]="paciente.ci" name="ci" required>
+        </div>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" class="form-control" [(ngModel)]="paciente.nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" class="form-control" [(ngModel)]="paciente.apellido" name="apellido" required>
+        </div>
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+          <input type="date" id="fechaNacimiento" class="form-control" [(ngModel)]="paciente.fechaNacimiento" name="fechaNacimiento" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="paciente.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" class="form-control" [(ngModel)]="paciente.telefono" name="telefono" required>
+        </div>
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <select id="sexo" class="form-control" [(ngModel)]="paciente.sexo" name="sexo" required>
+            <option value="" disabled selected>Seleccionar</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección:</label>
+          <input type="text" id="direccion" class="form-control" [(ngModel)]="paciente.direccion" name="direccion" required>
+        </div>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-primary">Actualizar Paciente</button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" class="form-control" [(ngModel)]="paciente.nombre" name="nombre" required>
-    </div>
-    <div class="form-group">
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" class="form-control" [(ngModel)]="paciente.apellido" name="apellido" required>
-    </div>
-    <div class="form-group">
-      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-      <input type="date" id="fechaNacimiento" class="form-control" [(ngModel)]="paciente.fechaNacimiento" name="fechaNacimiento" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" class="form-control" [(ngModel)]="paciente.email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" class="form-control" [(ngModel)]="paciente.telefono" name="telefono" required>
-    </div>
-    <div class="form-group">
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" class="form-control" [(ngModel)]="paciente.sexo" name="sexo" required>
-        <option value="" disabled selected>Seleccionar</option>
-        <option value="masculino">Masculino</option>
-        <option value="femenino">Femenino</option>
-        <option value="otro">Otro</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="direccion">Dirección:</label>
-      <input type="text" id="direccion" class="form-control" [(ngModel)]="paciente.direccion" name="direccion" required>
-    </div>
-    <div class="mt-3">
-    <button type="submit" class="btn btn-primary">Actualizar Paciente</button>
-    </div>
-  </form>
-</div>
+  </c-card-header>
+</c-card>
+
+

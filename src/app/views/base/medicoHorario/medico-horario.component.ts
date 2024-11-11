@@ -12,6 +12,9 @@ import {
   FormModule, TableColorDirective,
   TableDirective
 } from "@coreui/angular";
+import {Consultorio} from "../consultorios/consultorio";
+import {Medico} from "../medicos/medico";
+import {Horario} from "../horarios/horario";
 
 @Component({
   selector: 'app-medico-horario',
@@ -22,11 +25,19 @@ import {
 export class MedicoHorarioComponent {
 
   medicoHorario: MedicoHorario[] = [];
+  medico: Medico[]=[];
 
-  horasDisponibles = [
-    '08:00 - 09:00', '09:00 - 10:00', '10:00 - 11:00', '11:00 - 12:00',
-    '12:00 - 13:00', '13:00 - 14:00', '14:00 - 15:00', '15:00 - 16:00',
-    '16:00 - 17:00', '17:00 - 18:00', '18:00 - 19:00', '19:00 - 20:00'
+  consultorios: Consultorio[] = [];
+
+  horasInicio = [
+    '08:00', '09:00', '10:00', '11:00',
+    '12:00', '13:00', '14:00', '15:00',
+    '16:00', '17:00', '18:00', '19:00'
+  ];
+  horasFinal = [
+    '09:00', '10:00', '11:00',
+    '12:00', '13:00', '14:00', '15:00',
+    '16:00', '17:00', '18:00', '19:00', '20:00'
   ];
 
   diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
@@ -49,7 +60,7 @@ export class MedicoHorarioComponent {
         next: (data: MedicoHorario[]) => {
           this.medicoHorario = data;
         },
-      error: (error) => {
+        error: (error) => {
         console.error('Error al obtener medicoHorario:', error);
       }
       });
@@ -78,10 +89,38 @@ export class MedicoHorarioComponent {
       // );
     }
 
-  obtenerMedicoPorDiaYHora(dia: string, hora: string): any {
-      return this.medicoHorario.find((medicoHorario) => {
-        return medicoHorario.horario.horaInicio === hora && medicoHorario.horario.dia === dia;
-      });
-    }
+  obtenerMedicoPorDiaYHora(dia: string, horaInicio: string, horaFin: string){
+    return this.medicoHorario.filter(
+      (item) => item.horario.dia === dia && item.horario.horaInicio === horaInicio && item.horario.horaFin === horaFin
+    )  ;
+  }
+
+  generarIntervaloHorario(medicoHorario: MedicoHorario): void {
+
+
+    const medicoHorario1: MedicoHorario = {
+      id: 0, // or any default value or logic to generate a new id
+      medico: this.medico.find(m => m.id === medicoHorario.medico.id) || medicoHorario.medico,
+      consultorio: this.consultorios.find(c => c.id === medicoHorario.consultorio.id) || medicoHorario.consultorio,
+      horario:  {
+        id: medicoHorario.horario.id,
+        dia: medicoHorario.horario.dia,
+        horaInicio: medicoHorario.horario.horaInicio,
+        horaFin: medicoHorario.horario.horaFin,
+        capacidad: medicoHorario.horario.capacidad,
+        consultorio: medicoHorario.horario.consultorio
+      },
+      cantDisponibles: medicoHorario.cantDisponibles
+    };
+
+    this.medicoHorarioService.generarIntervaloHorario(medicoHorario1).subscribe({
+      next: (response) => {
+        console.log('Intervalos generados correctamente:', response);
+      },
+      error: (error) => {
+        console.error('Error al generar intervalos:', error);
+      }
+    });
+  }
 
 }
