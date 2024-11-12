@@ -11,7 +11,10 @@ export class MedicoHorarioService {
   private apiUrl = 'http://localhost:8080/api/medico-horarios';
 
   constructor(private http: HttpClient) { }
-
+ 
+  registrarMedicoHorario(medicoHorario: MedicoHorario): Observable<MedicoHorario> {
+    return this.http.post<MedicoHorario>(`${this.apiUrl}/asignar`, medicoHorario);
+  }
 
   listarMedicoHorario(): Observable<MedicoHorario[]> {
     return this.http.get<MedicoHorario[]>(`${this.apiUrl}/listar`);

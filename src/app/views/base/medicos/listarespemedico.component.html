@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <table class="table custom-table table-bordered table-striped table-sm">
+    <thead class="table table-bordered">
+      <tr>
+        <th>Nombre del Médico</th>
+        <th>Especialidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medico of medicosEspecialidades">
+        <td>{{ medico.medico.nombre }} {{ medico.medico.apellido }}</td>
+        <td>{{ medico.especialidad.nombre }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

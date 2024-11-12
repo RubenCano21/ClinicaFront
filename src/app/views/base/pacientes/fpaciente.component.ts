@@ -18,7 +18,7 @@ import {
   selector: 'app-pacientes-listar',
   templateUrl: './fpaciente.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, CardHeaderComponent, CardComponent, CardBodyComponent, TableDirective, TableColorDirective, ButtonDirective, CardFooterComponent, CardTextDirective, BgColorDirective]
+  imports: [CommonModule, FormsModule, CardHeaderComponent, CardComponent, CardBodyComponent , TableColorDirective, ButtonDirective, BgColorDirective]
 })
 export class PacienteComponent implements OnInit {
   pacientes: Paciente[] = [];
@@ -26,10 +26,10 @@ export class PacienteComponent implements OnInit {
   constructor(private pacienteService: PacienteService,private router: Router) {}
 
   ngOnInit(): void {
-    this.getPacientes();
+    this.getPaciente();
   }
 
-  getPacientes(): void {
+  getPaciente(): void {
     this.pacienteService.getPacientes().subscribe(
       (data: Paciente[]) => {
         this.pacientes = data;

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IntervaloHorario} from "./intervalo-horario";
 import {Observable} from "rxjs";
@@ -20,4 +20,4 @@ export class IntervaloHorarioService {
   listarIntervalos(): Observable<IntervaloHorario[]> {
     return this.http.get<IntervaloHorario[]>(`${this.apiUrl}/listar`);
   }
-}
+}*/

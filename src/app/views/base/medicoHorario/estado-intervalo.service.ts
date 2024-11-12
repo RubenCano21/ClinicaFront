@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
@@ -14,4 +14,4 @@ export class EstadoIntervaloService {
   getEstadosIntervalo(): Observable<string[]>{
     return this.http.get<string[]>(`${this.apiURL}`);
   }
-}
+}*/

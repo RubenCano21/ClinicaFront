@@ -18,10 +18,10 @@ export class MedicoComponent implements OnInit {
   constructor(private medicoService: MedicoService,private router: Router) {}
 
   ngOnInit(): void {
-    this.getMedicos();
+    this.listaMedicos();
   }
 
-  getMedicos(): void {
+  listaMedicos(): void {
     this.medicoService.getMedicos().subscribe(
       (data: Medico[]) => {
         this.medicos = data;

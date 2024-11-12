@@ -3,6 +3,4 @@ export class Horario {
      dia!: string;
      horaInicio!: string; 
      horaFin!: string; 
-     capacidad!: number; 
-     consultorio! : number [];
 }

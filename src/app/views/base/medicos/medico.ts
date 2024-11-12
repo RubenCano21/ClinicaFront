@@ -1,3 +1,5 @@
+import { Especialidad } from "../especialidades/especialidad";
+
 export class Medico {
     id!: number;
     ci!: number;
@@ -6,5 +8,5 @@ export class Medico {
     email!: string;
     telefono!: string;
     sexo!: string;
-    especialidades!: number[];
+    especialidad?: Especialidad;
 }

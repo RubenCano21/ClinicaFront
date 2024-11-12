@@ -49,13 +49,15 @@ export const routes: Routes = [
           title: 'Pacientes'
         }
       },
+
       {
         path: 'lista-pacientes',
-        loadComponent: () => import('./pacientes/paciente.component').then(m => m.PacienteComponent),
+        loadComponent: () => import('./pacientes/fpaciente.component').then(m => m.PacienteComponent),
         data: {
           title: 'Pacientes'
          }
-        },
+      },
+      
       {
         path: 'actualizar-paciente/:id',
         loadComponent: () => import('./pacientes/epaciente.component').then(m => m.PacienteComponent),
@@ -71,16 +73,34 @@ export const routes: Routes = [
           title: 'Medicos'
         }
       },
+
       {
         path: 'lista-medicos',
         loadComponent: () => import('./medicos/listmedico.component').then(m => m.MedicoComponent),
         data: {
           title: 'Medicos'
          }
-        },
+      },
+
       {
         path: 'actualizar-medico/:id',
         loadComponent: () => import('./medicos/editmedico.component').then(m => m.MedicoComponent),
+        data: {
+          title: 'Medicos'
+        }
+      },
+
+      {
+        path: 'asignar-medico',
+        loadComponent: () => import('./medicos/espemedico.component').then(m => m.MedicoEspecialidadComponent),
+        data: {
+          title: 'Medicos'
+        }
+      },
+
+      {
+        path: 'listar-medico-especialidad',
+        loadComponent: () => import('./medicos/listarespemedico.component').then(m => m.ListarEspeMedicoComponent),
         data: {
           title: 'Medicos'
         }
@@ -134,26 +154,29 @@ export const routes: Routes = [
       },
 
       {
-        path: 'listar',
-        loadComponent: () => import('./medicoHorario/medico-horario.component').then(m => m.MedicoHorarioComponent),
+        path: 'listar-horario-medico',
+        loadComponent: () => import('./medicoHorario/listar-medico-horario.component').then(m => m.ListarComponent),
         data: {
-          title: 'Medicos Horarios'
+          title: 'MedicosHorarios'
         }
       },
+
       {
-        path: 'registrar',
-        loadComponent: () => import('./medicoHorario/registrar-medico-horario.component').then(m => m.RegistrarMedicoHorarioComponent),
+        path: 'registrar-horario-medico',
+        loadComponent: () => import ('./medicoHorario/registrar-medico-horario.component').then(m => m.MedicoHorarioComponent),
         data: {
-          title: 'Asignar Horarios'
+          title: 'MedicosHorarios'
         }
       },
-      {
+
+     /* {
         path: 'generar-intervalos',
         loadComponent: () => import('./medicoHorario/intervalo-horario.component').then(m => m.IntervaloHorarioComponent),
         data: {
           title: 'Intervalos de Horarios'
         }
-      },
+      },*/
+
       {
         path: 'cards',
         loadComponent: () => import('./cards/cards.component').then(m => m.CardsComponent),

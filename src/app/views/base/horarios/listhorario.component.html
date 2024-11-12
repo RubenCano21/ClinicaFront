@@ -9,7 +9,6 @@
             <th>Día</th>
             <th>Hora de Inicio</th>
             <th>Hora de Fin</th>
-            <th>Capacidad</th>
             <th style="width: 120px;">Acciones</th>
           </tr>
         </thead>
@@ -19,7 +18,6 @@
             <td>{{ item.dia }}</td>
             <td>{{ item.horaInicio }}</td>
             <td>{{ item.horaFin }}</td>
-            <td>{{ item.capacidad }}</td>
             <td>
               <button class="btn btn-primary btn-sm" (click)="actualizarHorario(item.id)">
                 Actualizar

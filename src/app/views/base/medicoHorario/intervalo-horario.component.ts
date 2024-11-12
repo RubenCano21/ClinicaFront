@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+/*import {Component, OnInit} from '@angular/core';
 import {
   BgColorDirective,
   CardBodyComponent,
@@ -51,4 +51,4 @@ export class IntervaloHorarioComponent implements OnInit {
 
 
 
-}
+}*/

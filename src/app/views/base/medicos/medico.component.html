@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Registrar Médico</h1>
-<form (ngSubmit)="registrarMedico(form)" #form="ngForm" class="row g-3">
+  <form (ngSubmit)="registrarMedico(form)" #form="ngForm" class="row g-3">
     <c-col [md]="4">
       <label cLabel for="ci" class="fw-medium">Cédula de Identidad</label>
       <input cFormControl name="ci" id="ci" type="number" placeholder="CI" ngModel required />
@@ -30,18 +30,8 @@
         <option value="otro">Otro</option>
       </select>
     </c-col>
-    <c-col [md]="6">
-      <label cLabel for="especialidades">Especialidad</label>
-      <select cSelect name="especialidad" id="especialidades" [(ngModel)]="especialidadesobtenidas" class="form-control" required>
-        <option value="" disabled selected>Seleccionar Especialidad</option>
-        <option *ngFor="let especialidad of especialidadesobtenidas" [value]="especialidad.id"> 
-          {{ especialidad.nombre }}
-        </option>
-      </select> 
-      <p *ngIf="especialidadesobtenidas.length === 0">No hay especialidades disponibles</p> <!-- Mensaje de estado -->
-    </c-col>
     <c-col [xs]="12">
-      <button cButton type="submit" class="fw-medium">Registrar</button>
+      <button cButton type="submit" class="fw-medium" [disabled]="!form.valid">Registrar</button>
     </c-col>
   </form>
 </div>

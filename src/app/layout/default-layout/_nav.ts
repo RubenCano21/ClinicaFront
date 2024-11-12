@@ -71,8 +71,19 @@ export const navItems: INavData[] = [
         url: '/medicos/actualizar-medico/:id',
         icon: 'nav-icon-bullet'
       },
+      {
+        name: "Asignar Medicos",
+        url: '/medicos/asignar-medico',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: "listar Medicos",
+        url: '/medicos/listar-medico-especialidad',
+        icon: 'nav-icon-bullet'
+      },
     ]
   },
+
   {
     name: 'Consultorios',
     url: '/consultorios',
@@ -136,19 +147,19 @@ export const navItems: INavData[] = [
   },
 
   {
-    name: 'Horarios de Medicos',
+    name: 'MedicosHorarios',
     url: '/medicos-horarios',
     linkProps: { fragment: 'headings' },
     iconComponent: { name: 'cil-cursor' },
     children: [
       {
         name: "Ver Horarios",
-        url: '/medicos-horarios/listar',
+        url: '/medicos-horarios/listar-horario-medico',
         icon: 'nav-icon-bullet'
       },
       {
         name: 'Asignar Horarios',
-        url: '/medicos-horarios/registrar',
+        url: '/medicos-horarios/registrar-horario-medico',
         icon: 'nav-icon-bullet'
       },
       {

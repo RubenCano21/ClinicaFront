@@ -19,7 +19,6 @@ export class MedicoComponent implements OnInit {
     email: '',
     telefono: '',
     sexo: '',
-    especialidades: []
   };
 
   constructor(

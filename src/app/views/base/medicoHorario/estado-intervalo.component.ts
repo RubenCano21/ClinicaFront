@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+/*import {Component, OnInit} from '@angular/core';
 import {EstadoIntervaloService} from "./estado-intervalo.service";
 
 @Component({
@@ -22,4 +22,4 @@ export class EstadoIntervaloComponent implements OnInit {
     })
   }
 
-}
+}*/

@@ -1,59 +1,39 @@
-<c-card class="" >
-  <c-card-header class="bg-primary text-white">Asignar Horarios a Medicos</c-card-header>
-  <c-card-body>
-    <form  cForm class="row g-3">
-      <c-col [md]="4">
-        <label cLabel for="inputPassword6" class="fw-medium">Nombres y Apellidos</label>
-        <input cFormControl id="inputPassword6" type="text" placeholder="nombres" />
-      </c-col>
-      <c-col [md]="4">
-        <label cLabel for="inputEmail5" class="fw-medium">Especialidad</label>
-        <input cFormControl id="inputEmail5" type="text"  placeholder="especialidad"/>
-      </c-col>
-      <c-col [md]="4">
-        <label cLabel for="inputPassword5" class="fw-medium">Horario</label>
-        <input cFormControl id="inputPassword5" type="text"  placeholder="horario"/>
-      </c-col>
-      <c-col [md]="6">
-        <label cLabel for="inputEmail5" class="fw-medium">Consultorio</label>
-        <select cSelect id="consultorios" [ngModel]="consultorios">
-          <option disabled selected>Seleccionar</option>
-          <option *ngFor="let consultorio of consultorios">
-            {{ consultorio.nombre }}
-          </option>
-        </select>
-      </c-col>
-      <c-col [md]="6">
-        <label cLabel for="inputPassword4" class="fw-medium">Fichas Disponibles</label>
-        <input cFormControl id="inputPassword4" type="number"   />
-      </c-col>
-      <c-col [xs]="12">
-        <label cLabel for="inputAddress" class="fw-medium">Dirección</label>
-        <input cFormControl id="inputAddress" placeholder="Av. San Martin" />
-      </c-col>
-      <c-col [xs]="12">
-        <label cLabel for="inputAddress2" class="fw-medium">Address 2</label>
-        <input cFormControl id="inputAddress2" placeholder="C/Bethel " />
-      </c-col>
-      <c-col [md]="6">
-        <label cLabel for="inputCity" class="fw-medium">Ciudad</label>
-        <input cFormControl id="inputCity" />
-      </c-col>
-      <c-col [md]="4">
-        <label cLabel for="inputState" class="fw-medium">Rol</label>
-        <select cSelect id="inputState" >
-          <option>Seleccionar</option>
-          <option>ADMIN</option>
-          <option>CLIENTE</option>
-        </select>
-      </c-col>
-      <c-col [md]="2">
-        <label cLabel for="inputZip" class="fw-medium">Zip</label>
-        <input cFormControl id="inputZip" />
-      </c-col>
-      <c-col [xs]="12">
-        <button cButton type="submit" class="fw-medium">Registrar</button>
-      </c-col>
-    </form>
-  </c-card-body>
-</c-card>
+<!-- Formulario para seleccionar Médico, Consultorio y Horario -->
+<form>
+  <div class="form-group">
+    <label for="medicoSelect">Seleccione un Médico</label>
+    <select id="medicoSelect" class="form-control" [(ngModel)]="selectedMedicoId" name="medico" required>
+      <option value="" disabled selected>Seleccione un médico</option>
+      <option *ngFor="let medico of medicoEspecialidades" [value]="medico.medico.id">
+        {{ medico.medico.nombre }} {{ medico.medico.apellido }} - {{ medico.especialidad.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="consultorioSelect">Seleccione un Consultorio</label>
+    <select id="consultorioSelect" class="form-control" [(ngModel)]="selectedConsultorioId" name="consultorio" required>
+      <option value="" disabled selected>Seleccione un consultorio</option>
+      <option *ngFor="let consultorio of consultorios" [value]="consultorio.id">
+        {{ consultorio.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="horarioSelect">Seleccione un Horario</label>
+    <select id="horarioSelect" class="form-control" [(ngModel)]="selectedHorarioId" name="horario" required>
+      <option value="" disabled selected>Seleccione un horario</option>
+      <option *ngFor="let horario of horarios" [value]="horario.id">
+        {{ horario.dia }}: {{ horario.horaInicio }} - {{ horario.horaFin }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="cantDisponibles">Cantidad de Disponibles</label>
+    <input id="cantDisponibles" type="number" class="form-control" [(ngModel)]="cantDisponibles" name="cantDisponibles" required min="1">
+  </div>
+
+  <button type="button" class="btn btn-primary mt-3" (click)="registrarRelacion()">Registrar Relación</button>
+</form>

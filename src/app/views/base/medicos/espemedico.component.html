@@ -1,0 +1,41 @@
+<div class="container my-4">
+  <h2 class="text-center">Asignación de Especialidad a Médicos</h2>
+
+  <!-- Formulario para seleccionar Médico y Especialidad -->
+  <form #form="ngForm" (ngSubmit)="registrarRelacion(form)">
+    <div class="form-group">
+      <label for="medicoSelect">Seleccione un Médico</label>
+      <select
+        id="medicoSelect"
+        class="form-control"
+        [(ngModel)]="selectedMedicoId"
+        name="medico"
+        required
+      >
+        <option value="" disabled selected>Seleccione un médico</option>
+        <option *ngFor="let medico of medicos" [value]="medico.id">
+          {{ medico.nombre }} {{ medico.apellido }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="especialidadSelect">Seleccione una Especialidad</label>
+      <select
+        id="especialidadSelect"
+        class="form-control"
+        [(ngModel)]="selectedEspecialidadId"
+        name="especialidad"
+        required
+      >
+        <option value="" disabled selected>Seleccione una especialidad</option>
+        <option *ngFor="let especialidad of especialidades" [value]="especialidad.id">
+          {{ especialidad.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+  </form>
+</div>
+

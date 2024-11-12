@@ -1,9 +1,9 @@
-import {MedicoHorario} from "./medico-horario";
-import {Fichas} from "../fichas/fichas";
+/*import {MedicoHorario} from "./medico-horario";
+import {Ficha} from "../fichas/ficha";
 
 export class IntervaloHorario {
 
-  id!: number ;
+  id!: number;
 
   horaInicio!: string;
   horaFin!: string;
@@ -12,5 +12,5 @@ export class IntervaloHorario {
 
   estado!: string;
 
-  ficha!: Fichas;
-}
+  ficha!: Ficha;
+}*/

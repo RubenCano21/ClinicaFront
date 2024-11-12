@@ -38,29 +38,6 @@
             </div>
         </div>
 
-        <!-- Campo para ingresar la capacidad -->
-        <div class="col-md-6">
-            <label for="capacidad" class="form-label">Capacidad</label>
-            <input name="capacidad" id="capacidad" type="number" class="form-control" placeholder="Capacidad" required [(ngModel)]="capacidad" #capacidad="ngModel" />
-            <div *ngIf="capacidad.invalid && capacidad.touched" class="text-danger">
-                Capacidad es obligatoria.
-            </div>
-        </div>
-
-        <!-- Campo para seleccionar el consultorio -->
-        <div class="col-md-6">
-            <label for="consultorio" class="form-label">Consultorio</label>
-            <select name="consultorio" id="consultorio" class="form-select" required [(ngModel)]="consultorio" #consultorio="ngModel">
-                <option value="" disabled selected>Seleccionar un consultorio</option>
-                <option *ngFor="let consultorio of consultoriosobtener" [value]="consultorio.id">
-                    {{ consultorio.nombre }}
-                </option>
-            </select>
-            <div *ngIf="consultorio.invalid && consultorio.touched" class="text-danger">
-                Consultorio es obligatorio.
-            </div>
-        </div>
-
         <!-- Botón para enviar el formulario -->
         <div class="col-12">
             <button type="submit" class="btn btn-primary" [disabled]="horarioForm.invalid">Registrar</button>
