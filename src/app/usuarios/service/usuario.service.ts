@@ -32,6 +32,6 @@ export class UsuarioService {
   }
 
   logout(): void {
-    localStorage.removeItem('token'); 
+    localStorage.removeItem('token');
   }
 }

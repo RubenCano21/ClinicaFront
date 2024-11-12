@@ -143,7 +143,7 @@ export const navItems: INavData[] = [
 
   {
     title: true,
-    name: 'Fichas'
+    name: 'Horarios'
   },
 
   {
@@ -165,6 +165,29 @@ export const navItems: INavData[] = [
       {
         name: 'Intervalos de Horarios',
         url: '/medicos-horarios/generar-intervalos',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  {
+    title: true,
+    name: 'Fichas'
+  },
+
+  {
+    name: 'Fichas',
+    url: '/fichas',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-cursor' },
+    children: [
+      {
+        name: "Ver Ficha",
+        url: '/fichas/listar-fichas',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: "Agendar Ficha",
+        url: '/fichas/agendar-fichas',
         icon: 'nav-icon-bullet'
       },
     ]

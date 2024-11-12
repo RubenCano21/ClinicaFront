@@ -178,6 +178,20 @@ export const routes: Routes = [
       },*/
 
       {
+        path: 'listar-fichas',
+        loadComponent: () => import('./fichas/ficha.component').then(m => m.FichaComponent),
+        data: {
+          title: 'Fichas'
+        }
+      },
+      {
+        path: 'agendar-fichas',
+        loadComponent: () => import('./fichas/registrar-ficha.component').then(m => m.RegistrarFichaComponent),
+        data: {
+          title: 'Fichas'
+        }
+      },
+      {
         path: 'cards',
         loadComponent: () => import('./cards/cards.component').then(m => m.CardsComponent),
         data: {

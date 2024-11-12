@@ -1,1 +1,39 @@
-<p>ficha works!</p>
+<c-card>
+  <c-card-header>
+    <h4>Lista de Ficha registradas</h4>
+  </c-card-header>
+  <c-card-body>
+    <div>
+      <table bordered cTable>
+        <thead cTableColor="light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Paciente</th>
+          <th scope="col">Medico</th>
+          <th scope="col">Especialidad</th>
+          <th scope="col">Consultorio</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Intervalo</th>
+          <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ficha of fichas">
+          @let item= 0;
+          <td>{{ item +1 }}</td>
+          <td>{{ ficha.paciente.nombre}} {{ ficha.paciente.apellido }}</td>
+          <td>{{ ficha.medico.nombre }} {{ ficha.medico.apellido }}</td>
+          <td>{{ ficha.especialidad.nombre }}</td>
+          <td>{{ ficha.medicoHorario.consultorio.nombre }}</td>
+          <td>{{ ficha.fechaConsulta | date:'dd/MM/yyyy' }}</td>
+          <td>{{ ficha.intervaloHorario.horaInicio}} -- {{ficha.intervaloHorario.horaFin}}</td>
+          <td>
+            <button class="btn btn-primary">Editar</button>
+            <button class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </c-card-body>
+</c-card>

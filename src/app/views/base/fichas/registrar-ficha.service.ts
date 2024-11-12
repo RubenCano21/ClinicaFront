@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {Ficha} from "./ficha";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FichaService {
+export class RegistrarFichaService {
 
   private apiUrl = 'http://localhost:8080/api/fichas';
 
   constructor(private http: HttpClient) { }
 
-  listarFichas(): Observable<Ficha[]> {
-    return this.http.get<Ficha[]>(`${this.apiUrl}/listar`);
+  registrarFicha(ficha: any) : Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/agendarFicha`, ficha);
   }
-
-
 }

@@ -1,4 +1,4 @@
-/*import {MedicoHorario} from "./medico-horario";
+import {MedicoHorario} from "./medico-horario";
 import {Ficha} from "../fichas/ficha";
 
 export class IntervaloHorario {
@@ -13,4 +13,4 @@ export class IntervaloHorario {
   estado!: string;
 
   ficha!: Ficha;
-}*/
+}
