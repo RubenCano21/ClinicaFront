@@ -67,7 +67,7 @@ export class MedicoComponent implements OnInit {
           }
         );
       }
-    // Método para registrar un paciente
+    // Método para registrar un medico
     registrarMedico(form: NgForm): void {
         const formValues = form.value;
         const nuevoMedico: Medico = {
@@ -78,7 +78,7 @@ export class MedicoComponent implements OnInit {
             email: formValues.email,
             telefono: formValues.telefono,
             sexo: formValues.sexo,
-            especialidades: formValues.especialidadesobtenidas
+           // especialidades: formValues.especialidadesobtenidas
         };
 
 

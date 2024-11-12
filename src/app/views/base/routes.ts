@@ -51,7 +51,7 @@ export const routes: Routes = [
       },
       {
         path: 'lista-pacientes',
-        loadComponent: () => import('./pacientes/paciente.component').then(m => m.PacienteComponent),
+        loadComponent: () => import('./pacientes/fpaciente.component').then(m => m.PacienteComponent),
         data: {
           title: 'Pacientes'
          }
@@ -152,6 +152,20 @@ export const routes: Routes = [
         loadComponent: () => import('./medicoHorario/intervalo-horario.component').then(m => m.IntervaloHorarioComponent),
         data: {
           title: 'Intervalos de Horarios'
+        }
+      },
+      {
+        path: 'listar-fichas',
+        loadComponent: () => import('./fichas/ficha.component').then(m => m.FichaComponent),
+        data: {
+          title: 'Fichas'
+        }
+      },
+      {
+        path: 'agendar-fichas',
+        loadComponent: () => import('./fichas/registrar-ficha.component').then(m => m.RegistrarFichaComponent),
+        data: {
+          title: 'Fichas'
         }
       },
       {

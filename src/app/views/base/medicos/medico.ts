@@ -6,5 +6,5 @@ export class Medico {
     email!: string;
     telefono!: string;
     sexo!: string;
-    especialidades!: number[];
+    //especialidades!: number[];
 }

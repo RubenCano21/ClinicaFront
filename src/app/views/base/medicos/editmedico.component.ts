@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicoService } from './medico.service';
 import { Medico } from './medico';
-import { FormsModule,NgForm} from '@angular/forms'; 
+import { FormsModule,NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-actualizar-medico',
@@ -19,7 +19,7 @@ export class MedicoComponent implements OnInit {
     email: '',
     telefono: '',
     sexo: '',
-    especialidades: []
+    //especialidades: []
   };
 
   constructor(
@@ -52,5 +52,5 @@ export class MedicoComponent implements OnInit {
         }
     );
  }
-  
+
 }
