@@ -1,46 +1,41 @@
-/*import {Component, OnInit} from '@angular/core';
-import {
-  BgColorDirective,
-  CardBodyComponent,
-  CardComponent, CardFooterComponent,
-  CardHeaderComponent,
-  TableColorDirective,
-  TableDirective
-} from "@coreui/angular";
-import {NgForOf} from "@angular/common";
+import {Component, OnInit} from '@angular/core';
+import { NgForOf} from "@angular/common";
 import {IntervaloHorario} from "./intervalo-horario";
 import {IntervaloHorarioService} from "./intervalo-horario.service";
+import {FormsModule} from "@angular/forms";
+import {MedicoHorario} from "./medico-horario";
+import {MedicoHorarioService} from "./medico-horario.service";
 
 @Component({
   selector: 'app-intervalo-horario',
   standalone: true,
   imports: [
-    CardComponent,
-    CardHeaderComponent,
-    CardBodyComponent,
-    TableDirective,
-    TableColorDirective,
     NgForOf,
-    CardFooterComponent,
-    BgColorDirective
+    FormsModule,
+
   ],
   templateUrl: './intervalo-horario.component.html'
 })
 export class IntervaloHorarioComponent implements OnInit {
 
-  intervalo: IntervaloHorario[] = [];
+  intervalos: IntervaloHorario[] = [];
+  medicoHorarios: MedicoHorario[] = [];
+  medicoHorarioId: number | null = null;
 
-  constructor(private intervaloService: IntervaloHorarioService  ) {}
+
+  constructor(private intervaloService: IntervaloHorarioService,
+              private medicoHorarioService: MedicoHorarioService) {}
 
 
   ngOnInit(){
-    this.obtenerIntervalos();
+    this.cargarIntervalos();
+    this.cargarMedicoHorarios();
   }
 
-  obtenerIntervalos(): void {
+  cargarIntervalos(): void {
     this.intervaloService.listarIntervalos().subscribe({
       next: (data: IntervaloHorario[]) => {
-        this.intervalo = data;
+        this.intervalos = data;
       },
       error: (error) => {
         console.error('Error al obtener intervalos:', error);
@@ -48,7 +43,26 @@ export class IntervaloHorarioComponent implements OnInit {
     });
   }
 
+  cargarMedicoHorarios(): void {
+    this.medicoHorarioService.listarMedicoHorario().subscribe({
+      next: (data: MedicoHorario[]) => {
+        this.medicoHorarios = data;
+      },
+      error: (error) => {
+        console.error('Error al obtener médico-horarios:', error);
+      }
+    });
+  }
 
+  filtrarPorMedico(): void {
+    if (this.medicoHorarioId) {
+      this.intervaloService.filtrarPorMedico(this.medicoHorarioId).subscribe({
+        next: (data: IntervaloHorario[]) => (this.intervalos = data),
+        error: (err) => console.error('Error al filtrar intervalos:', err),
+      });
+    } else {
+      this.cargarIntervalos(); // Mostrar todos si no se selecciona médico
+    }
+  }
 
-
-}*/
+}

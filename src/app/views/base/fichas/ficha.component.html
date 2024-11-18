@@ -18,15 +18,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let ficha of fichas">
-          @let item= 0;
-          <td>{{ item +1 }}</td>
+        <tr *ngFor="let ficha of fichas; let indice= index">
+
+          <td>{{ indice  +1 }}</td>
           <td>{{ ficha.paciente.nombre}} {{ ficha.paciente.apellido }}</td>
           <td>{{ ficha.medico.nombre }} {{ ficha.medico.apellido }}</td>
           <td>{{ ficha.especialidad.nombre }}</td>
-          <td>{{ ficha.medicoHorario.consultorio.nombre }}</td>
+          <td>{{ ficha.medicoHorario.consultorio.nombre}}</td>
           <td>{{ ficha.fechaConsulta | date:'dd/MM/yyyy' }}</td>
-          <td>{{ ficha.intervaloHorario.horaInicio}} -- {{ficha.intervaloHorario.horaFin}}</td>
+          <td>{{ ficha.intervaloHorario.horaInicio}} - {{ficha.intervaloHorario.horaFin}}</td>
           <td>
             <button class="btn btn-primary">Editar</button>
             <button class="btn btn-danger">Eliminar</button>

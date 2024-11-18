@@ -26,28 +26,28 @@ import {
     selector: 'app-medico',
     templateUrl: './medico.component.html',
     standalone: true,
-  imports: [ ColComponent, NgClass,
-    BreadcrumbRouterComponent, FormDirective, FormLabelDirective, FormControlDirective, FormSelectDirective,
-    FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, AvatarComponent, IconDirective,
-    ProgressComponent, FormsModule, CommonModule]
+  imports: [ ColComponent,
+     FormLabelDirective, FormControlDirective, FormSelectDirective,
+     ButtonDirective,
+     FormsModule, CommonModule]
 })
 export class MedicoComponent implements OnInit {
     medicos: Medico[] = []; // Inicializa la lista de pacientes
-    
+
     constructor(private medicoService: MedicoService,) {}
 
     // Implementación correcta del método ngOnInit
     ngOnInit(): void {
         // Puedes llamar a otro método aquí si necesitas
         this.getMedicos(); // Solo si quieres obtener los pacientes al inicializar
-        
+
     }
 
     // Método para registrar un medico
     registrarMedico(form: NgForm): void {
         const formValues = form.value;
         const nuevoMedico: Medico = {
-            id: 0, 
+            id: 0,
             ci: formValues.ci,
             nombre: formValues.nombre,
             apellido: formValues.apellido,
@@ -55,7 +55,7 @@ export class MedicoComponent implements OnInit {
             telefono: formValues.telefono,
             sexo: formValues.sexo,
         };
-        console.log('Nuevo Médico:', nuevoMedico); 
+        console.log('Nuevo Médico:', nuevoMedico);
 
 
         this.medicoService.registrarMedico(nuevoMedico).subscribe(

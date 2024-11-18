@@ -19,14 +19,14 @@ import { MedicoEspecialidad } from '../medicos/medicoespe';
   imports: [FormsModule, CommonModule]
 })
 export class MedicoHorarioComponent implements OnInit {
-  medicos: Medico[] = []; 
+  medicos: Medico[] = [];
   medicoEspecialidades: MedicoEspecialidad[] = [];
   consultorios: Consultorio[] = [];
   horarios: Horario[] = [];
   selectedMedicoId: number | undefined;
   selectedConsultorioId: number | undefined;
   selectedHorarioId: number | undefined;
-  cantDisponibles: number = 0;  
+  cantDisponibles: number = 0;
 
   constructor(
     private medicoService: MedicoService,
@@ -42,7 +42,7 @@ export class MedicoHorarioComponent implements OnInit {
     this.cargarHorarios();
    this.cargarEspecialidad();
   }
- 
+
 
   cargarMedicos(): void {
     this.medicoService.getMedicos().subscribe(
@@ -50,7 +50,7 @@ export class MedicoHorarioComponent implements OnInit {
         this.medicos = data;
         console.log('Médicos cargados:', this.medicos);
       },
-      (error) => {  
+      (error) => {
         console.error('Error al cargar médicos:', error);
       }
     );
@@ -92,33 +92,35 @@ export class MedicoHorarioComponent implements OnInit {
       }
     );
   }
-  
-  registrarRelacion(): void {
-    if (this.selectedMedicoId && this.selectedConsultorioId && this.selectedHorarioId && this.cantDisponibles > 0) {
-      // Crear un objeto MedicoHorario solo con los IDs
-      const medicoHorario = {
-        id: 0,  // Suponiendo que el backend genera el ID
-        medicoId: this.selectedMedicoId,   // Asignar solo el ID de Medico
-        consultorioId: this.selectedConsultorioId,  // Asignar solo el ID de Consultorio
-        horarioId: this.selectedHorarioId, // Asignar solo el ID de Horario
-        cantDisponibles: this.cantDisponibles // Asignar la cantidad disponible
-      };
-  
-      console.log('Datos enviados al backend:', medicoHorario);
-  
-      // Llamar al servicio para registrar la relación
-      this.medicoHorarioService.registrarMedicoHorario(medicoHorario).subscribe(
-        response => {
-          console.log('Relación de Médico-Horario registrada correctamente', response);
-        },
-        error => {
-          console.error('Error al registrar relación', error);
-        }
-      );
-    } else {
-      console.log('Por favor, seleccione todos los campos y asegúrese de que la cantidad sea mayor a 0.');
-    }
-  }
-  
-  
+
+  // registrarRelacion(): void {
+  //   if (this.selectedMedicoId && this.selectedConsultorioId && this.selectedHorarioId && this.cantDisponibles > 0) {
+  //     // Crear un objeto MedicoHorario solo con los IDs
+  //     const medicoHorario = {
+  //       id: 0,  // Suponiendo que el backend genera el ID
+  //       medicoId: this.selectedMedicoId,   // Asignar solo el ID de Medico
+  //       consultorioId: this.selectedConsultorioId,  // Asignar solo el ID de Consultorio
+  //       horarioId: this.selectedHorarioId, // Asignar solo el ID de Horario
+  //       cantDisponibles: this.cantDisponibles, // Asignar la cantidad disponible
+  //
+  //     };
+  //
+  //     console.log('Datos enviados al backend:', medicoHorario);
+  //
+  //     // Llamar al servicio para registrar la relación
+  //     this.medicoHorarioService.registrarMedicoHorario(medicoHorario).subscribe(
+  //       response => {
+  //         this.consultorios = [];
+  //         console.log('Relación de Médico-Horario registrada correctamente', response);
+  //       },
+  //       error => {
+  //         console.error('Error al registrar relación', error);
+  //       }
+  //     );
+  //   } else {
+  //     console.log('Por favor, seleccione todos los campos y asegúrese de que la cantidad sea mayor a 0.');
+  //   }
+  // }
+
+
 }

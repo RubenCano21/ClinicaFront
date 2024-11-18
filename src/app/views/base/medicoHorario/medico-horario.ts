@@ -1,8 +1,12 @@
+import {Consultorio} from "../consultorios/consultorio";
+import {Medico} from "../medicos/medico";
+import {Horario} from "../horarios/horario";
+
 export class MedicoHorario {
   id!: number;
-  medicoId!: number;  
-  consultorioId!: number;  
-  horarioId!: number; 
+  medico!: Medico;
+  consultorio!: Consultorio;
+  horario!: Horario;
   cantDisponibles!: number;
 
   medicoNombre?: string;

@@ -1,16 +1,18 @@
 import {MedicoHorario} from "./medico-horario";
 import {Ficha} from "../fichas/ficha";
 
-export class IntervaloHorario {
+export interface IntervaloHorario {
 
-  id!: number;
+  id: number;
+  horaInicio: string; // Formato "HH:mm:ss"
+  horaFin: string;    // Formato "HH:mm:ss"
+  estado: string;     // Enum: LIBRE, OCUPADO
+  medicoHorario: {
+    id: number;
+    medico: {
+      id: number;
+      nombre: string;
+    };
+  };
 
-  horaInicio!: string;
-  horaFin!: string;
-
-  medicoHorario!: MedicoHorario;
-
-  estado!: string;
-
-  ficha!: Ficha;
 }

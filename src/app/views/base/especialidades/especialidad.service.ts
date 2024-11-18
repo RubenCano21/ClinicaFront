@@ -14,7 +14,8 @@ export class EspecialidadService {
     registrarEspecialidad(especialidad: Especialidad): Observable<Especialidad> {
         return this.http.post<Especialidad>(`${this.apiUrl}/registrar`, especialidad);
     }
+
     listarEspecialidad(): Observable<Especialidad[]> {
-        return this.http.get<Especialidad[]>(`${this.apiUrl}/listar`); 
-      }   
+        return this.http.get<Especialidad[]>(`${this.apiUrl}/listar`);
+    }
 }

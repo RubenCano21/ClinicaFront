@@ -1,18 +1,21 @@
-<div class="container mt-5">
-    <h2 class="text-center">Lista de Especialidades</h2>
-    
-    <div class="table-responsive d-flex justify-content-center">
-      <table class="table table-striped table-bordered mt-4" style="max-width: 500px;" *ngIf="especialidad.length > 0">
-        <thead>
+<c-card class="row" style="max-width: 800px; margin: auto">
+  <c-card-header>
+    <h4>Lista de Especialidades</h4>
+  </c-card-header>
+  <c-card-body>
+    <div class="container mt-5">
+      <div class="table-responsive d-flex justify-content-center">
+        <table class="table table-striped table-bordered mt-4" style=" width: 100%" *ngIf="especialidad.length > 0">
+          <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th style="width: 120px;"> Acciones</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let especialidades of especialidad">
-            <td>{{ especialidades.id }}</td>
+          </thead>
+          <tbody>
+          <tr *ngFor="let especialidades of especialidad; let indice= index">
+            <td>{{ indice +1 }}</td>
             <td>{{ especialidades.nombre }}</td>
             <td>
               <button class="btn btn-primary btn-sm" (click)="actualizarEspecialidad(especialidades.id)">
@@ -20,8 +23,10 @@
               </button>
             </td>
           </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  
+  </c-card-body>
+</c-card>
+

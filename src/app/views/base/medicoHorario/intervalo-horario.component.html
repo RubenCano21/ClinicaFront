@@ -1,29 +1,61 @@
-<!--
-<c-card>
-  <c-card-header>
-    <h4 class="card-title">Intervalo de Horario</h4>
-  </c-card-header>
-  <c-card-body>
-      <table cTable>
-        <thead cTableColor="primary">
-          <tr>
-            <th>Medico</th>
-            <th>Hora Inicio</th>
-            <th>Hora Fin</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let intervalo of intervalo">
-            <td>{{intervalo.medicoHorario.medico.nombre}}</td>
-            <td>{{intervalo.horaInicio}}</td>
-            <td>{{intervalo.horaFin}}</td>
-            <td>{{intervalo.estado}}</td>
-          </tr>
-      </table>
-  </c-card-body>
-  <c-card-footer>
+<!--<c-card>-->
+<!--  <c-card-header>-->
+<!--    <h4 class="card-title">Intervalo de Horario</h4>-->
+<!--  </c-card-header>-->
+<!--  <c-card-body>-->
+<!--    <table cTable>-->
+<!--      <thead cTableColor="primary">-->
+<!--      <tr>-->
+<!--        <th>Medico</th>-->
+<!--        <th>Hora Inicio</th>-->
+<!--        <th>Hora Fin</th>-->
+<!--        <th>Estado</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let intervalo of intervalos">-->
+<!--        <td>{{intervalo.medicoHorario.medico.nombre}}</td>-->
+<!--        <td>{{intervalo.horaInicio}}</td>-->
+<!--        <td>{{intervalo.horaFin}}</td>-->
+<!--        <td>{{intervalo.estado}}</td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </c-card-body>-->
+<!--  <c-card-footer>-->
 
-  </c-card-footer>
-</c-card>
--->
+<!--  </c-card-footer>-->
+<!--</c-card>-->
+
+<div class="container mt-4">
+  <h2>Intervalos Horario</h2>
+
+  <!-- Filtro por Médico -->
+  <label for="medico">Filtrar por Médico:</label>
+  <select id="medico" [(ngModel)]="medicoHorarioId" (change)="filtrarPorMedico()">
+    <option *ngFor="let medico of medicoHorarios" [value]="medico.id">
+      {{ medico.medico.nombre }}
+    </option>
+  </select>
+
+  <!-- Tabla de Intervalos -->
+  <table class="table table-striped mt-3">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Hora Inicio</th>
+      <th>Hora Fin</th>
+      <th>Estado</th>
+      <th>Médico</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let intervalo of intervalos">
+      <td>{{ intervalo.id }}</td>
+      <td>{{ intervalo.horaInicio }}</td>
+      <td>{{ intervalo.horaFin }}</td>
+      <td>{{ intervalo.estado }}</td>
+      <td>{{ intervalo.medicoHorario.medico.nombre }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

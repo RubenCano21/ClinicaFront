@@ -1,16 +1,42 @@
-<div class="container mt-4">
-  <table class="table custom-table table-bordered table-striped table-sm">
-    <thead class="table table-bordered">
-      <tr>
-        <th>Nombre del Médico</th>
-        <th>Especialidad</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let medico of medicosEspecialidades">
-        <td>{{ medico.medico.nombre }} {{ medico.medico.apellido }}</td>
-        <td>{{ medico.especialidad.nombre }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<c-card>
+  <c-card-header cBgColor="primary">
+    <h4 class="text-white">Lista de Medicos y Especialidades</h4>
+
+    <!-- Filtro por nombre -->
+    <input class="rounded-4" [(ngModel)]="nombreFiltro" (input)="aplicarFiltro()" placeholder="Buscar por nombre..." />
+  </c-card-header>
+  <c-card-body>
+
+    <div class="medicoEspecialidad-container">
+
+      <!-- Tabla de medicos y especialidades -->
+      <table class="table table-bordered">
+        <thead cTableColor="secondary">
+        <tr>
+          <th>#</th>
+          <th>Medico </th>
+          <th>Especialidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medicoEspecialidad of medicosEspecialidades;  let indice=index ">
+
+          <td>{{ indice + 1 }}</td>
+          <td>{{ medicoEspecialidad.medico.nombre }} {{medicoEspecialidad.medico.apellido}}</td>
+          <td>{{ medicoEspecialidad.especialidad.nombre }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </c-card-body>
+  <c-card-footer>
+    <!-- Paginación -->
+    <div class="pagination">
+      <button class="bg-success text-white rounded-4" (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+      <span> Página {{ currentPage + 1 }} de {{ totalItems / pageSize | number: '1.0' }}</span>
+      <button class="bg-success text-white rounded-4" (click)="cambiarPagina(currentPage + 1)" [disabled]="(currentPage + 1) * pageSize >= totalItems">Siguiente</button>
+    </div>
+
+  </c-card-footer>
+</c-card>

@@ -20,5 +20,7 @@ export class Ficha {
 
   fechaConsulta!: Date;
 
+  consultorioNombre!:string;
+
   cantDisponibles!: number;
 }

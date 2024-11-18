@@ -9,6 +9,8 @@ import {
   TableDirective
 } from "@coreui/angular";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
+import {ConsultorioService} from "../consultorios/consultorio.service";
+import {Consultorio} from "../consultorios/consultorio";
 
 
 @Component({
@@ -28,13 +30,15 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
 })
 export class FichaComponent implements OnInit {
 
-  fichas: Ficha[] = [];
+  fichas: Ficha[] = [ ];
+  consultorios: Consultorio[] = [ ];
 
-
-  constructor(private fichaService: FichaService) { }
+  constructor(private fichaService: FichaService,
+              private consultorioService: ConsultorioService) { }
 
   ngOnInit(): void {
     this.getFichas();
+    this.getConsultorio();
   }
 
   getFichas(): void {
@@ -44,6 +48,17 @@ export class FichaComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error al obtener fichas:', error);
+      }
+    });
+  }
+
+  getConsultorio(){
+    this.consultorioService.listarConsultorios().subscribe({
+      next: (data: any) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error('Error al obtener consultorio:', error);
       }
     });
   }

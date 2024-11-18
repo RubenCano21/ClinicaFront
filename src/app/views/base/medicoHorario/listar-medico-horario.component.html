@@ -14,11 +14,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let medicoHorario of medicoHorarios">
-          <td>{{ medicoHorario.medicoNombre }}</td>  <!-- Mostrar nombre del médico -->
-          <td>{{ medicoHorario.consultorioNombre }}</td>  <!-- Mostrar nombre del consultorio -->
-          <td>{{ medicoHorario.horarioDia }}</td>  <!-- Mostrar día del horario -->
-          <td>{{ medicoHorario.horarioHoraInicio }}</td>  <!-- Mostrar hora de inicio -->
-          <td>{{ medicoHorario.horarioHoraFin }}</td>  <!-- Mostrar hora de fin -->
+          <td>{{ medicoHorario.medico.nombre }} {{medicoHorario.medico.apellido}}</td>  <!-- Mostrar nombre del médico -->
+          <td>{{ medicoHorario.consultorio.nombre }}</td>  <!-- Mostrar nombre del consultorio -->
+          <td>{{ medicoHorario.horario.dia }}</td>  <!-- Mostrar día del horario -->
+          <td>{{ medicoHorario.horario.horaInicio }}</td>  <!-- Mostrar hora de inicio -->
+          <td>{{ medicoHorario.horario.horaFin }}</td>  <!-- Mostrar hora de fin -->
           <td>{{ medicoHorario.cantDisponibles }}</td>  <!-- Mostrar cantidad disponible -->
         </tr>
       </tbody>

@@ -57,7 +57,14 @@ export const routes: Routes = [
           title: 'Pacientes'
          }
       },
-      
+      {
+        path: 'lista-pagina',
+        loadComponent: () => import('./pacientePagina/paciente.component').then(m => m.PacienteComponent),
+        data: {
+          title: 'Pacientes'
+         }
+      },
+
       {
         path: 'actualizar-paciente/:id',
         loadComponent: () => import('./pacientes/epaciente.component').then(m => m.PacienteComponent),
@@ -169,13 +176,13 @@ export const routes: Routes = [
         }
       },
 
-     /* {
+      {
         path: 'generar-intervalos',
         loadComponent: () => import('./medicoHorario/intervalo-horario.component').then(m => m.IntervaloHorarioComponent),
         data: {
           title: 'Intervalos de Horarios'
         }
-      },*/
+      },
 
       {
         path: 'listar-fichas',
@@ -184,9 +191,16 @@ export const routes: Routes = [
           title: 'Fichas'
         }
       },
+      // {
+      //   path: 'agendar-fichas',
+      //   loadComponent: () => import('./fichas/registrar-ficha.component').then(m => m.RegistrarFichaComponent),
+      //   data: {
+      //     title: 'Fichas'
+      //   }
+      // },
       {
         path: 'agendar-fichas',
-        loadComponent: () => import('./fichas/registrar-ficha.component').then(m => m.RegistrarFichaComponent),
+        loadComponent: () => import('./fichas/agendar-ficha/agendar-ficha.component').then(m => m.AgendarFichaComponent),
         data: {
           title: 'Fichas'
         }

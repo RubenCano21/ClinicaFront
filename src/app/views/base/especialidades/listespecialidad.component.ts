@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { EspecialidadService } from './especialidad.service';
 import { Especialidad } from './especialidad';
 import { CommonModule } from '@angular/common';
+import {CardBodyComponent, CardComponent, CardHeaderComponent} from "@coreui/angular";
 
 @Component({
   selector: 'app-listar-especialidad',
   templateUrl: './listespecialidad.component.html',
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, CardComponent, CardHeaderComponent, CardBodyComponent]
 })
 export class EspecialidadComponent implements OnInit {
   especialidad: Especialidad[] = [];

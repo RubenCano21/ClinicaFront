@@ -44,6 +44,11 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       },
       {
+        name: 'Pacientes Pagina',
+        url: '/pacientes/lista-pagina',
+        icon: 'nav-icon-bullet'
+      },
+      {
         name: "Actualizar Pacientes",
         url: '/pacientes/actualizar-paciente/:id',
         icon: 'nav-icon-bullet'

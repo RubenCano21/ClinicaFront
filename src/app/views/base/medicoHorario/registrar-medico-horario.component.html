@@ -4,7 +4,7 @@
     <label for="medicoSelect">Seleccione un Médico</label>
     <select id="medicoSelect" class="form-control" [(ngModel)]="selectedMedicoId" name="medico" required>
       <option value="" disabled selected>Seleccione un médico</option>
-      <option *ngFor="let medico of medicoEspecialidades" [value]="medico.medico.id">
+      <option *ngFor="let medico of medicoEspecialidades" [value]="medico.id">
         {{ medico.medico.nombre }} {{ medico.medico.apellido }} - {{ medico.especialidad.nombre }}
       </option>
     </select>
@@ -35,5 +35,5 @@
     <input id="cantDisponibles" type="number" class="form-control" [(ngModel)]="cantDisponibles" name="cantDisponibles" required min="1">
   </div>
 
-  <button type="button" class="btn btn-primary mt-3" (click)="registrarRelacion()">Registrar Relación</button>
+  <button type="button" class="btn btn-primary mt-3" >Registrar Relación</button>
 </form>

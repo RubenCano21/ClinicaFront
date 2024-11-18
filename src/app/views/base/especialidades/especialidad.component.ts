@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
-import { EspecialidadService } from './especialidad.service'; 
-import { Especialidad } from './especialidad'; 
+import { EspecialidadService } from './especialidad.service';
+import { Especialidad } from './especialidad';
+import {CardBodyComponent, CardComponent, CardHeaderComponent} from "@coreui/angular";
 
 @Component({
     selector: 'app-consultorio',
     templateUrl: './especialidad.component.html',
     standalone: true,
-    imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule, CardComponent, CardHeaderComponent, CardBodyComponent]
 })
 export class EspecialidadComponent {
     especialidadForm: FormGroup;
