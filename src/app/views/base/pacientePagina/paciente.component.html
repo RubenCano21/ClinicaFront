@@ -1,0 +1,43 @@
+<c-card>
+  <c-card-header cBgColor="primary">
+    <h4 class="text-white">Lista de Pacientes</h4>
+
+      <!-- Filtro por nombre -->
+      <input class="rounded-4" [(ngModel)]="nombreFiltro" (input)="aplicarFiltro()" placeholder="Buscar por nombre..." />
+  </c-card-header>
+  <c-card-body>
+
+    <div class="producto-container">
+
+      <!-- Tabla de productos -->
+      <table class="table table-bordered">
+        <thead cTableColor="secondary">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let paciente of pacientes">
+          <td>{{ paciente.id }}</td>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </c-card-body>
+  <c-card-footer>
+      <!-- Paginación -->
+      <div class="pagination">
+        <button class="bg-success text-white rounded-4" (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+        <span> Página {{ currentPage + 1 }} de {{ totalItems / pageSize | number: '1.0' }}</span>
+        <button class="bg-success text-white rounded-4" (click)="cambiarPagina(currentPage + 1)" [disabled]="(currentPage + 1) * pageSize >= totalItems">Siguiente</button>
+      </div>
+
+  </c-card-footer>
+</c-card>
+
+

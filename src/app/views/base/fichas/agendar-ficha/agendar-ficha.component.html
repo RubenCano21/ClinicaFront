@@ -1,0 +1,59 @@
+<c-card  style="max-width: 700px; margin: auto">
+  <c-card-header cBgColor="primary">
+    <h4 class="text-light">Agendar Ficha</h4>
+  </c-card-header>
+  <c-card-body>
+    <form [formGroup]="agendarFichaForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="paciente">Paciente</label>
+        <select id="paciente" formControlName="pacientes" class="form-control">
+          <option *ngFor="let paciente of pacientes" [value]="paciente.id">
+            {{ paciente.nombre }} {{ paciente.apellido }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label for="especialidad">Especialidad</label>
+        <select id="especialidad" formControlName="especialidades" class="form-control">
+          <option *ngFor="let especialidad of especialidades" [value]="especialidad.id">
+            {{ especialidad.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <label for="medico">Médico</label>
+      <select id="medico" formControlName="medicoId" class="form-control">
+        <option *ngFor="let medico of medicosEspecialidad" [value]="medico.id">
+          {{ medico.medico.nombre}}
+        </option>
+      </select>
+
+      <label for="horario">Horario</label>
+        <select id="horario" formControlName="medicoHorarioId" class="form-control">
+          <option *ngFor="let horario of medicosHorarios" [value]="horario.id">
+            {{ horario.horario.horaInicio }} - {{ horario.horario.horaFin }}
+          </option>
+        </select>
+
+      <label for="intervalo">Intervalo</label>
+      <select id="intervalo" formControlName="intervaloHorarioId" class="form-control">
+        <option *ngFor="let intervalo of intervalos" [value]="intervalo.id">
+          {{ intervalo.horaInicio }} - {{ intervalo.horaFin }} - {{ intervalo.estado}}
+        </option>
+      </select>
+
+      <label for="fecha">Fecha</label>
+      <input id="fecha" type="datetime-local" formControlName="fechaConsulta" class="form-control" />
+
+      <button type="submit" class="btn btn-primary">Agendar Ficha</button>
+    </form>
+
+    <p *ngIf="mensaje">{{ mensaje }}</p>
+
+  </c-card-body>
+<!--  <c-card-footer>-->
+<!--    <button cButton type="submit" class="btn btn-primary rounded-5">Agendar</button>-->
+<!--  </c-card-footer>-->
+</c-card>
+
