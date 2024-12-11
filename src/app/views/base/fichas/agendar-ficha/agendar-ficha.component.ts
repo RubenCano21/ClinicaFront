@@ -5,14 +5,7 @@ import {EspecialidadService} from "../../especialidades/especialidad.service";
 import {Especialidad} from "../../especialidades/especialidad";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MedicoEspecialidadService} from "../../medicos/medicoespe.service";
-import {MedicoEspecialidad} from "../../medicos/medicoespe";
-import {DatosReservaFicha} from "./datos-reserva-ficha";
-import {IntervaloHorario} from "../../medicoHorario/intervalo-horario";
-import {MedicoHorario} from "../../medicoHorario/medico-horario";
-import {IntervaloHorarioService} from "../../medicoHorario/intervalo-horario.service";
-import {MedicoHorarioService} from "../../medicoHorario/medico-horario.service";
-import {Paciente} from "../../pacientes/paciente";
+
 import {
   BgColorDirective,
   CardBodyComponent,
@@ -21,6 +14,14 @@ import {
 } from "@coreui/angular";
 import {Ficha} from "../ficha";
 import {PacienteService} from "../../pacientes/paciente.service";
+import {Paciente} from "../../pacientes/paciente";
+import {MedicoEspecialidad} from "../../medicos/medicoespe";
+import {MedicoHorario} from "../../medicoHorario/medico-horario";
+import {IntervaloHorario} from "../../medicoHorario/intervalo-horario";
+import {MedicoEspecialidadService} from "../../medicos/medicoespe.service";
+import {IntervaloHorarioService} from "../../medicoHorario/intervalo-horario.service";
+import {MedicoHorarioService} from "../../medicoHorario/medico-horario.service";
+import {DatosReservaFicha} from "./datos-reserva-ficha";
 
 @Component({
   selector: 'app-agendar-ficha',
@@ -108,7 +109,7 @@ export class AgendarFichaComponent implements OnInit {
   }
 
   cargarMedicosEspecialidad(): void{
-      this.medicoEspecialidadService.obtenerMedicosPorEspecialidad(this.agendarFichaForm.value).subscribe({
+      this.medicoEspecialidadService.listarMedicoEspecialidad().subscribe({
         next: (data: MedicoEspecialidad[]) => {
           this.medicosEspecialidad = data;
         },
@@ -148,9 +149,9 @@ export class AgendarFichaComponent implements OnInit {
       const datos: DatosReservaFicha = this.agendarFichaForm.value;
       console.log("Datos a enviar: ", datos);
       this.fichaService.agendarFicha(datos).subscribe({
-        next: (response: any) => {
-          this.mensaje = 'Ficha agendada correctamente';
+        next: (response: Ficha[]) => {
           this.fichas = response;
+          this.mensaje = 'Ficha agendada correctamente';
           this.agendarFichaForm.reset();
         },
         error: (error) => {

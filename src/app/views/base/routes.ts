@@ -206,6 +206,20 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'enfermeria',
+        loadComponent: () => import('./enfermerias/enfermeria.component').then(m => m.EnfermeriaComponent),
+        data: {
+          title: 'Enfermeria'
+        }
+      },
+      {
+        path: 'chatbot',
+        loadComponent: () => import('./chatbot/chatbot.component').then(m => m.ChatbotComponent),
+        data: {
+          title: 'Chatbot'
+        }
+      },
+      {
         path: 'cards',
         loadComponent: () => import('./cards/cards.component').then(m => m.CardsComponent),
         data: {

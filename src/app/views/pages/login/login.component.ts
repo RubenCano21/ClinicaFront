@@ -3,7 +3,7 @@ import { NgStyle } from '@angular/common';
 import { IconDirective } from '@coreui/icons-angular';
 import { ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, FormControlDirective, ButtonDirective } from '@coreui/angular';
 import { RouterLink, Router } from "@angular/router";
-import { UsuarioService } from '../../../usuarios/service/usuario.service'; 
+import { UsuarioService } from '../../../usuarios/service/usuario.service';
 import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,26 +13,27 @@ import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular
   styleUrls: ['./login.component.scss'],
   standalone: true,
   imports: [
-    ContainerComponent, 
-    RowComponent, 
-    ColComponent, 
-    CardGroupComponent, 
-    TextColorDirective, 
-    CardComponent, 
-    CardBodyComponent, 
-    FormDirective, 
+    ContainerComponent,
+    RowComponent,
+    ColComponent,
+    CardGroupComponent,
+    TextColorDirective,
+    CardComponent,
+    CardBodyComponent,
+    FormDirective,
     InputGroupComponent,
     InputGroupTextDirective,
-    IconDirective, 
-    FormControlDirective, 
+    IconDirective,
+    FormControlDirective,
     ButtonDirective,
-    NgStyle, 
+    NgStyle,
     RouterLink,
     ReactiveFormsModule
   ]
 })
 
 export class LoginComponent {
+
   loginForm: FormGroup;
   errorMessage: string | null = null;
 

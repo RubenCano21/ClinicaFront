@@ -21,44 +21,4 @@
     </div>
   </c-card-body>
 </c-card>
-<br>
-<c-card>
-  <c-card-header>
-    <h4>Historial de mensajes</h4>
-  </c-card-header>
-  <c-card-body>
-    <div class="container">
-      <h1>Chatbot Webhook</h1>
-      <form (ngSubmit)="reviewMessage()" #messageForm="ngForm">
-        <div class="form-group">
-          <label for="from">Número del remitente:</label>
-          <input
-            type="text"
-            id="from"
-            class="form-control"
-            required
-            [(ngModel)]="messageData.from"
-            name="from"
-          />
-        </div>
-        <div class="form-group">
-          <label for="body">Mensaje:</label>
-          <textarea
-            id="body"
-            class="form-control"
-            required
-            [(ngModel)]="messageData.body"
-            name="body"
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
-
-      <div *ngIf="response" class="mt-4 alert alert-success">
-        <strong>Respuesta del chatbot:</strong> {{ response }}
-      </div>
-    </div>
-
-  </c-card-body>
-</c-card>
 

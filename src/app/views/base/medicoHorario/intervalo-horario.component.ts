@@ -5,6 +5,7 @@ import {IntervaloHorarioService} from "./intervalo-horario.service";
 import {FormsModule} from "@angular/forms";
 import {MedicoHorario} from "./medico-horario";
 import {MedicoHorarioService} from "./medico-horario.service";
+import {CardBodyComponent, CardComponent, CardHeaderComponent} from "@coreui/angular";
 
 @Component({
   selector: 'app-intervalo-horario',
@@ -12,6 +13,9 @@ import {MedicoHorarioService} from "./medico-horario.service";
   imports: [
     NgForOf,
     FormsModule,
+    CardComponent,
+    CardHeaderComponent,
+    CardBodyComponent,
 
   ],
   templateUrl: './intervalo-horario.component.html'

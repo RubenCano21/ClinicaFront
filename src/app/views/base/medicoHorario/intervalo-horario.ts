@@ -12,6 +12,7 @@ export interface IntervaloHorario {
     medico: {
       id: number;
       nombre: string;
+      apellido: string;
     };
   };
 

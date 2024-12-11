@@ -1,61 +1,39 @@
-<!--<c-card>-->
-<!--  <c-card-header>-->
-<!--    <h4 class="card-title">Intervalo de Horario</h4>-->
-<!--  </c-card-header>-->
-<!--  <c-card-body>-->
-<!--    <table cTable>-->
-<!--      <thead cTableColor="primary">-->
-<!--      <tr>-->
-<!--        <th>Medico</th>-->
-<!--        <th>Hora Inicio</th>-->
-<!--        <th>Hora Fin</th>-->
-<!--        <th>Estado</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr *ngFor="let intervalo of intervalos">-->
-<!--        <td>{{intervalo.medicoHorario.medico.nombre}}</td>-->
-<!--        <td>{{intervalo.horaInicio}}</td>-->
-<!--        <td>{{intervalo.horaFin}}</td>-->
-<!--        <td>{{intervalo.estado}}</td>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--  </c-card-body>-->
-<!--  <c-card-footer>-->
+<c-card>
+  <c-card-header>
+    <h3>Intervalos de horarios</h3>
+  </c-card-header>
+  <c-card-body>
+    <div class="container mt-4">
+      <!-- Filtro por Médico -->
+      <label for="medico">Filtrar por Médico:</label>
+      <select id="medico" [(ngModel)]="medicoHorarioId" (change)="filtrarPorMedico()">
+        <option *ngFor="let medico of medicoHorarios" [value]="medico.id">
+          {{ medico.medico.nombre }}
+        </option>
+      </select>
 
-<!--  </c-card-footer>-->
-<!--</c-card>-->
+      <!-- Tabla de Intervalos -->
+      <table class="table table-bordered mt-3">
+        <thead class="">
+        <tr>
+          <th>#</th>
+          <th>Médico</th>
+          <th>Hora Inicio</th>
+          <th>Hora Fin</th>
+          <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let intervalo of intervalos; let indice=index">
+          <td>{{ indice +1 }}</td>
+          <td>{{ intervalo.medicoHorario.medico.nombre }} {{ intervalo.medicoHorario.medico.apellido}}</td>
+          <td>{{ intervalo.horaInicio }}</td>
+          <td>{{ intervalo.horaFin }}</td>
+          <td>{{ intervalo.estado }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-<div class="container mt-4">
-  <h2>Intervalos Horario</h2>
-
-  <!-- Filtro por Médico -->
-  <label for="medico">Filtrar por Médico:</label>
-  <select id="medico" [(ngModel)]="medicoHorarioId" (change)="filtrarPorMedico()">
-    <option *ngFor="let medico of medicoHorarios" [value]="medico.id">
-      {{ medico.medico.nombre }}
-    </option>
-  </select>
-
-  <!-- Tabla de Intervalos -->
-  <table class="table table-striped mt-3">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Hora Inicio</th>
-      <th>Hora Fin</th>
-      <th>Estado</th>
-      <th>Médico</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let intervalo of intervalos">
-      <td>{{ intervalo.id }}</td>
-      <td>{{ intervalo.horaInicio }}</td>
-      <td>{{ intervalo.horaFin }}</td>
-      <td>{{ intervalo.estado }}</td>
-      <td>{{ intervalo.medicoHorario.medico.nombre }}</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+  </c-card-body>
+</c-card>
