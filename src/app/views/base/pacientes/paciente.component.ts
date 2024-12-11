@@ -2,27 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { PacienteService } from './paciente.service';
 import { Paciente } from './paciente';
 import { Injectable } from '@angular/core';
-import { DocsExampleComponent } from '@docs-components/public-api';
-import { NgClass } from '@angular/common';
+
 import {FormsModule, NgForm} from "@angular/forms";
-import {IconDirective} from "@coreui/icons-angular";
+
 import {
-  AvatarComponent, BgColorDirective, BorderDirective,
-  BreadcrumbComponent,
-  BreadcrumbItemComponent,
-  BreadcrumbRouterComponent, ButtonDirective,
+  BgColorDirective, BorderDirective,
+  ButtonDirective,
   CardBodyComponent,
   CardComponent,
   CardHeaderComponent,
   ColComponent,
-  FormCheckComponent,
-  FormCheckInputDirective, FormCheckLabelDirective,
   FormControlDirective,
-  FormDirective,
   FormLabelDirective,
-  FormSelectDirective, ProgressComponent,
-  RowComponent, TableDirective,
-  TextColorDirective
+  FormSelectDirective,
 } from '@coreui/angular';
 
 @Injectable({
@@ -33,11 +25,11 @@ import {
     selector: 'app-paciente',
     templateUrl: './paciente.component.html',
     standalone: true,
-  imports: [RowComponent, ColComponent, TextColorDirective, CardComponent, CardHeaderComponent,
-    CardBodyComponent, DocsExampleComponent, BreadcrumbComponent, BreadcrumbItemComponent, NgClass,
-    BreadcrumbRouterComponent, FormDirective, FormLabelDirective, FormControlDirective, FormSelectDirective,
-    FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, ButtonDirective, AvatarComponent, IconDirective,
-    ProgressComponent, TableDirective, FormsModule, BgColorDirective, BorderDirective]
+  imports: [ColComponent,CardComponent, CardHeaderComponent,
+    CardBodyComponent,
+    FormLabelDirective, FormControlDirective, FormSelectDirective,
+    ButtonDirective,
+    FormsModule, BgColorDirective, BorderDirective]
 })
 export class PacienteComponent implements OnInit {
     pacientes: Paciente[] = []; // Inicializa la lista de pacientes

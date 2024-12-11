@@ -2,20 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { MedicoService } from './medico.service';
 import { Medico } from './medico';
 import { Injectable } from '@angular/core';
-import { NgClass } from '@angular/common';
 import {FormsModule, NgForm} from "@angular/forms";
-import {IconDirective} from "@coreui/icons-angular";
+
 import { CommonModule } from '@angular/common';
 import {
-    AvatarComponent,
-    BreadcrumbRouterComponent, ButtonDirective,
+ ButtonDirective,
     ColComponent,
-    FormCheckComponent,
-    FormCheckInputDirective, FormCheckLabelDirective,
+
     FormControlDirective,
-    FormDirective,
+
     FormLabelDirective,
-    FormSelectDirective, ProgressComponent,
+    FormSelectDirective,
   } from '@coreui/angular';
 
 @Injectable({

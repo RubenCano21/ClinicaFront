@@ -18,7 +18,7 @@ export const navItems: INavData[] = [
     name: 'Usuarios',
     url: '/usuarios',
     linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-user' },
+    iconComponent: { name: 'cil-burger' },
     children: [
       {
         name: "Lista de Usuarios",
@@ -195,26 +195,26 @@ export const navItems: INavData[] = [
         url: '/fichas/agendar-fichas',
         icon: 'nav-icon-bullet'
       },
+      {
+        name: "Enfermeria",
+        url: '/fichas/enfermeria',
+        icon: 'nav-icon-bullet'
+      },
     ]
   },
-  /*{
-    name: 'Trámites',
+  {
+    name: 'Chatbot',
     title: true
   },
   {
-    name: 'Base',
+    name: 'Chatbot',
     url: '/base',
     iconComponent: { name: 'cil-puzzle' },
     children: [
-      {
-        name: 'Accordion',
-        url: '/base/accordion',
-        icon: 'nav-icon-bullet'
-      },
 
       {
-        name: 'Cards',
-        url: '/base/cards',
+        name: 'Chat',
+        url: '/base/chatbot',
         icon: 'nav-icon-bullet'
       },
       // {
@@ -227,39 +227,39 @@ export const navItems: INavData[] = [
       //   url: '/base/collapse',
       //   icon: 'nav-icon-bullet'
       // },
-      {
-        name: 'List Group',
-        url: '/base/list-group',
-        icon: 'nav-icon-bullet'
-      },
+      // {
+      //   name: 'List Group',
+      //   url: '/base/list-group',
+      //   icon: 'nav-icon-bullet'
+      // },
       // {
       //   name: 'Navs & Tabs',
       //   url: '/base/navs',
       //   icon: 'nav-icon-bullet'
       // },
-      {
-        name: 'Pagination',
-        url: '/base/pagination',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Placeholder',
-        url: '/base/placeholder',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Tables',
-        url: '/base/tables',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Tabs',
-        url: '/base/tabs',
-        icon: 'nav-icon-bullet'
-      }
+      // {
+      //   name: 'Pagination',
+      //   url: '/base/pagination',
+      //   icon: 'nav-icon-bullet'
+      // },
+      // {
+      //   name: 'Placeholder',
+      //   url: '/base/placeholder',
+      //   icon: 'nav-icon-bullet'
+      // },
+      // {
+      //   name: 'Tables',
+      //   url: '/base/tables',
+      //   icon: 'nav-icon-bullet'
+      // },
+      // {
+      //   name: 'Tabs',
+      //   url: '/base/tabs',
+      //   icon: 'nav-icon-bullet'
+      // }
     ]
   },
-  {
+  /*{
     name: 'Buttons',
     url: '/buttons',
     iconComponent: { name: 'cil-cursor' },

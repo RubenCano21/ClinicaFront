@@ -20,7 +20,6 @@
         </thead>
         <tbody>
         <tr *ngFor="let medicoEspecialidad of medicosEspecialidades;  let indice=index ">
-
           <td>{{ indice + 1 }}</td>
           <td>{{ medicoEspecialidad.medico.nombre }} {{medicoEspecialidad.medico.apellido}}</td>
           <td>{{ medicoEspecialidad.especialidad.nombre }}</td>
@@ -31,7 +30,6 @@
     </div>
   </c-card-body>
   <c-card-footer>
-    <!-- Paginación -->
     <div class="pagination">
       <button class="bg-success text-white rounded-4" (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
       <span> Página {{ currentPage + 1 }} de {{ totalItems / pageSize | number: '1.0' }}</span>

@@ -1,1 +1,46 @@
-<p>enfermeria works!</p>
+<c-card>
+  <c-card-header>
+    <h3>Enfermeria</h3>
+  </c-card-header>
+  <c-card-body>
+    <div class="table-responsive d-flex justify-content-center">
+      <!-- Filtro por Médico -->
+<!--      <label for="medico">Filtrar por Médico:</label>-->
+<!--      <select id="medico" [(ngModel)]="medicoHorarioId" (change)="filtrarPorMedico()">-->
+<!--        <option *ngFor="let medico of medicoHorarios" [value]="medico.id">-->
+<!--          {{ medico.medico.nombre }}-->
+<!--        </option>-->
+<!--      </select>-->
+      <!-- Tabla de Intervalos -->
+      <table class="table table-striped table-bordered mt-4">
+        <thead>
+        <tr>
+          <th># </th>
+          <th># Ficha</th>
+          <th>Paciente</th>
+          <th>Peso</th>
+          <th>Altura</th>
+          <th>Temperatura</th>
+          <th>Presion</th>
+          <th>Frecuencia Cardiaca</th>
+          <th>Sintomas</th>
+          <th>Patologias</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let enfermeria of enfermerias; let indice=index">
+          <td>{{ indice +1 }}</td>
+          <td>{{ enfermeria.fichaMedica }}</td>
+          <td>{{ enfermeria.peso }}</td>
+          <td>{{ enfermeria.altura }}</td>
+          <td>{{ enfermeria.temperatura }}</td>
+          <td>{{ enfermeria.presion }}</td>
+          <td>{{ enfermeria.frecuenciaCardiaca }}</td>
+          <td>{{ enfermeria.sintomas }}</td>
+          <td>{{ enfermeria.patologias }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </c-card-body>
+</c-card>

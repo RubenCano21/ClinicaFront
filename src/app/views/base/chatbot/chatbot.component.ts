@@ -23,12 +23,9 @@ export class ChatbotComponent {
   phoneNumber = '';
   message = '';
 
-  messageData = {
-    from: '',
-    body: ''
-  };
 
-  response: string | null = null;
+
+  response: string  = '';
 
   constructor(private chatbotService: ChatbotService,
               private http: HttpClient) { }
@@ -44,25 +41,6 @@ export class ChatbotComponent {
       }
     });
   }
-
-  reviewMessage() {
-    const url = 'http://localhost:8080/api/chatbot/webhook';
-
-    this.http.post<{ message: string}>(url, this.messageData).subscribe({
-      next: (data) => {
-        this.response = data.message;
-        console.log('Mensaje revisado:', data);
-      },
-      error: (error) => {
-        console.error('Error al revisar el mensaje:', error);
-      }
-    });
-  }
-
-
-
-
-
 
 
 

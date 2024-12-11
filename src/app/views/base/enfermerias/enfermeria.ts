@@ -22,12 +22,18 @@ export class Patologia {
 export class Enfermeria {
   id?: number;
   fichaMedica: number;
+  peso: number;
+  altura?: number;
+  temperatura?: number;
+  presion?: number;
+  frecuenciaCardiaca?: number;
   sintomas: Sintoma[];
   patologias: Patologia[];
 
-  constructor(fichaMedica: number, sintomas: Sintoma[]= [], patologias: Patologia[]=[]) {
+  constructor(fichaMedica: number, peso: number, sintomas: Sintoma[]= [], patologias: Patologia[]=[]) {
     this.fichaMedica = fichaMedica;
     this.sintomas = sintomas;
     this.patologias = patologias;
+    this.peso = peso;
   }
 }

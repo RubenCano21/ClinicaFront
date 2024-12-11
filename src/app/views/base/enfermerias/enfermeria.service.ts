@@ -12,7 +12,7 @@ export class EnfermeriaService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerEnfermerias(): Observable<Enfermeria[]>{
+  listarEnfermerias(): Observable<Enfermeria[]>{
     return this.http.get<Enfermeria[]>(`${this.apiURL}/listar`);
   }
 
