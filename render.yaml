@@ -1,0 +1,6 @@
+services:
+  - type: static_site
+    name: angular-frontend
+    env: static
+    staticPublishPath: dist/coreui-free-angular-admin-template
+    buildCommand: npm install && npm run build
